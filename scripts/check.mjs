@@ -5,7 +5,7 @@ if(!existsSync(python))throw Error('Create the project Python 3.12 .venv and ins
 const tasks=[
  [python,['scripts/lint_contracts.py','check','contracts/quorum_current.py']],
  [python,['-m','pytest','-q']],
- [process.execPath,['--test','tests/tooling/receipt.test.mjs','tests/tooling/proxy.test.mjs','tests/tooling/journal.test.mjs','tests/tooling/native-delivery.test.mjs']],
+ [process.execPath,['--test','tests/tooling/receipt.test.mjs','tests/tooling/proxy.test.mjs','tests/tooling/journal.test.mjs','tests/tooling/native-delivery.test.mjs','tests/tooling/serverless.test.mjs']],
  ...['scripts/network.mjs','scripts/deploy.mjs','scripts/lifecycle.mjs','scripts/native-delivery.mjs'].map(file=>[process.execPath,['--check',file]]),
  [process.execPath,['node_modules/vitest/vitest.mjs','run','--root','frontend']],
  [process.execPath,['node_modules/typescript/bin/tsc','--noEmit','-p','frontend/tsconfig.json']],

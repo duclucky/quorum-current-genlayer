@@ -8,6 +8,7 @@ docs/DEPLOYMENT-RUNBOOK.md
 docs/FRONTEND-BASELINE.md
 docs/LOCAL-VERIFICATION.md
 docs/NETWORK-VERIFICATION.md
+docs/PUBLIC-FILE-ALLOWLIST.txt
 docs/README.md
 docs/evidence/local/build-phase9.txt
 docs/evidence/local/check-browser-payment.txt
@@ -20,6 +21,7 @@ docs/evidence/local/check-phase6.txt
 docs/evidence/local/check-phase7.txt
 docs/evidence/local/check-predeploy.txt
 docs/evidence/local/check-rpc-pacing.txt
+docs/evidence/local/check-serverless.txt
 docs/evidence/local/frontend/browser-close-ready.png
 docs/evidence/local/frontend/browser-closed-canonical.png
 docs/evidence/local/frontend/browser-credit-after-recovery.png
@@ -56,6 +58,8 @@ docs/evidence/local/frontend/home-mobile.png
 docs/evidence/local/frontend/proposal-review.png
 docs/evidence/local/frontend/routes-responsive.json
 docs/evidence/local/language-audit.json
+docs/evidence/local/public-hygiene.json
+docs/evidence/production/http-head.txt
 docs/evidence/studio-dev/browser-close.json
 docs/evidence/studio-dev/browser-cycle-inspection.json
 docs/evidence/studio-dev/browser-cycle-members-api.json
@@ -147,6 +151,5 @@ tests/tooling/journal.test.mjs
 tests/tooling/native-delivery.test.mjs
 tests/tooling/proxy.test.mjs
 tests/tooling/receipt.test.mjs
+tests/tooling/serverless.test.mjs
 tests/tooling/test_contract_metadata.py
-docs/evidence/local/public-hygiene.json
-docs/PUBLIC-FILE-ALLOWLIST.txt

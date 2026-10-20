@@ -1,13 +1,15 @@
 {
-  "gitRoot": "D:/Genlayer Project/quorum-current",
-  "currentFiles": 150,
-  "historyBlobsScanned": 109,
+  "command": "private audit hygiene.py <project> plus git staged/path/history review",
+  "gitRoot": "D:\\Genlayer Project\\quorum-current",
+  "currentFiles": 155,
+  "historyBlobsScanned": 223,
+  "stagedFiles": 10,
   "pathViolations": [],
   "historicalPathViolations": [],
   "actualSecretMatches": [],
-  "ignoredEnvExists": true,
-  "ignoredEnvStatus": [
+  "ignoredFiles": [
     ".env",
+    ".env.local",
     "frontend/.env"
   ],
   "passed": true

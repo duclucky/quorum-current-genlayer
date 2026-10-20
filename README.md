@@ -25,7 +25,7 @@ npm run check
 npm run dev
 ```
 
-`npm run check` runs pinned GenVM lint, 61 Python tests, 11 Node tooling tests,
+`npm run check` runs pinned GenVM lint, 61 Python tests, 12 Node tooling tests,
 33 frontend tests including the real SDK adapter, TypeScript and a production
 build. The graph reference test covers 1,728 graph/ballot cases. No critical
 tests are skipped. [Local proof and limits](docs/LOCAL-VERIFICATION.md).

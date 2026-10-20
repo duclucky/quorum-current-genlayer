@@ -1,0 +1,73 @@
+
+> quorum-current-genlayer@0.1.0 check
+> node scripts/check.mjs
+
+
+✓ Lint passed (3 checks)
+✓ Validation passed
+  Contract: QuorumCurrent
+  Methods: 14 (8 view, 6 write)
+INFO: File `gltest.config.yaml` found in the current directory, using it
+INFO: Clearing artifacts directory: artifacts
+INFO: Using the following configuration:
+INFO:   RPC URL: http://127.0.0.1:4000/api
+INFO:   Selected Network: localnet
+INFO:   Available networks: ['localnet', 'studio_devnet']
+INFO:   Selected chain type: localnet
+INFO:   Available chains: localnet, studio_devnet, studionet, testnet_asimov, testnet_bradbury
+INFO:   Contracts directory: contracts
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False
+.............................................................            [100%]
+61 passed in 14.42s
+✔ finalizing an older operation preserves a newer independently submitted operation (9.7214ms)
+✔ a finalized debit waits for asynchronous recipient delivery instead of treating cleared credit as delivery (7.6016ms)
+✔ wrong destination or absent recipient increase cannot prove delivery (3.436ms)
+✔ transaction projection never retains validator secrets or raw nested messages (2.3652ms)
+✔ proxy rejects transaction broadcasting and arbitrary simulation methods (0.5909ms)
+✔ fee simulation uses current server UTC and projects only the recommended public preset (34.195ms)
+✔ raw Studio success requires execution, not finality alone (1.6311ms)
+✔ normalized SDK execution success and failure (0.2602ms)
+✔ contradictory, malformed and undecided receipts never certify success (1.2951ms)
+✔ pending NOT_VOTED and provisional leader errors do not terminate a resumable wait (0.2612ms)
+✔ authoritative successful current result permits a successful receipt plus failed historical rotation (0.275ms)
+(node:14644) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ compiled production serverless entry imports under native Node ESM and serves the method guard (65.2029ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 233.4303
+
+ RUN  v5.0.5 D:/Genlayer Project/quorum-current/frontend
+
+
+ Test Files  4 passed (4)
+      Tests  33 passed (33)
+   Start at  17:47:50
+   Duration  4.76s (environment 40%, tests 28%, import 19%, setup 11%, transform 1%, worker 1%)
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 479 modules transformed.
+rendering chunks...
+computing gzip size...
+frontend/dist/index.html                   0.54 kB │ gzip:   0.35 kB
+frontend/dist/assets/index-CtOlxves.css   14.65 kB │ gzip:   3.84 kB
+frontend/dist/assets/ccip-0usrSwWi.js      2.83 kB │ gzip:   1.30 kB
+frontend/dist/assets/index-_kTw1SSf.js   905.79 kB │ gzip: 221.76 kB
+
+[plugin builtin:vite-reporter]
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 403ms
+CHECK PASS: contract lint, direct/tooling/frontend tests, TypeScript and production build.

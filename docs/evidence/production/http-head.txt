@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Access-Control-Allow-Origin: *
+Age: 0
+Cache-Control: public, max-age=0, must-revalidate
+Content-Disposition: inline
+Content-Length: 548
+Content-Type: text/html; charset=utf-8
+Date: Tue, 20 Oct 2026 10:45:43 GMT
+Etag: "0483a32d450a832ef851c282e216298f"
+Last-Modified: Tue, 20 Oct 2026 10:45:43 GMT
+Referrer-Policy: strict-origin-when-cross-origin
+Server: Vercel
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+X-Vercel-Cache: MISS
+X-Vercel-Id: hkg1::fdvsc-1792493142878-1a8ff6d0bc18
