@@ -15,7 +15,8 @@ try{
    if(!safe.contractAddress)throw Error('Successful deployment has no verified address');
    const version=await reader.readContract({address:safe.contractAddress,functionName:'protocol_version',args:[]});
    if(version!=='QC_V1')throw Error('Deployed protocol version mismatch');
-   const deployment={...identity(),address:safe.contractAddress,version,receipt:safe,status:'ACTIVE',contractExplorer:identity().explorer+'/address/'+safe.contractAddress};save('deployment.json',deployment);safeLog(deployment);
+   const deployedSourceCommit=load('operations.json')['deploy-v1'].sourceCommit;
+   const deployment={...identity(),sourceCommit:deployedSourceCommit,address:safe.contractAddress,version,receipt:safe,status:'ACTIVE',contractExplorer:identity().explorer+'/address/'+safe.contractAddress};save('deployment.json',deployment);safeLog(deployment);
   }
  }else throw Error('Use inspect, smoke or deploy');
 }catch(error){reportFailure(error);}

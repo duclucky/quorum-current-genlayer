@@ -16,3 +16,8 @@ test('contradictory, malformed and undecided receipts never certify success',()=
  assert.equal(receiptState({status:'UNDETERMINED'}).failed,true);
  assert.deepEqual(Object.keys(receiptState({})).sort(),['execution','failed','finalized','status','successful']);
 });
+test('pending NOT_VOTED and provisional leader errors do not terminate a resumable wait',()=>{
+ for(const tx of [{status:'PENDING',txExecutionResult:0,txExecutionResultName:'NOT_VOTED'},{status:'PENDING',consensus_data:{leader_receipt:[{execution_result:'ERROR'}]}}]){
+  assert.equal(receiptState(tx).failed,false);assert.equal(receiptState(tx).successful,false);
+ }
+});

@@ -88,7 +88,7 @@ export async function finalReceipt(hash){
 }
 export async function operation(name,actor,send){
  await verifyChain();const journal=load('operations.json')??{};
- if(journal[name]?.hash){const result=await finalReceipt(journal[name].hash);journal[name].receipt=result.safe;save('operations.json',journal);return result;}
+ if(journal[name]?.hash){const result=await finalReceipt(journal[name].hash);journal[name].receipt=result.safe;journal[name].stage='FINALIZED_SUCCESS';save('operations.json',journal);return result;}
  if(!identity().sourceCommit)throw Error('Commit reviewed source before deployment or value writes');
  const gitRoot=execFileSync('git',['rev-parse','--show-toplevel'],{cwd:ROOT,encoding:'utf8'}).trim();
  if(resolve(gitRoot).toLowerCase()!==ROOT.toLowerCase())throw Error('Git root must be this project child');

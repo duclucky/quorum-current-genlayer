@@ -11,10 +11,10 @@ export function receiptState(input:unknown):ReceiptState{
  const status=statuses.length&&statuses.every(x=>x===statuses[0])?statuses[0]:'UNKNOWN';
  const raw=object(tx.consensus_data).leader_receipt;
  const leaders=Array.isArray(raw)?raw:raw?[raw]:[];
- const results=[name(tx.txExecutionResultName,executionResultNumberToName),name(tx.txExecutionResult,executionResultNumberToName),...leaders.map(r=>object(r).execution_result)].filter(x=>x!==undefined&&x!==null);
+ const results=[name(tx.txExecutionResultName,executionResultNumberToName),name(tx.txExecutionResult,executionResultNumberToName),...leaders.map(r=>object(r).execution_result)].filter(x=>x!==undefined&&x!==null&&x!=='NOT_VOTED');
  const good=(v:unknown)=>v==='SUCCESS'||v==='FINISHED_WITH_RETURN';
  const execution=results.length?(results.every(good)?'SUCCESS':'ERROR'):'UNKNOWN';
  const finalized=status==='FINALIZED';
  const successful=(status==='ACCEPTED'||finalized)&&execution==='SUCCESS';
- return {status,execution,successful,finalized,failed:execution==='ERROR'||['UNDETERMINED','CANCELED','CANCELLED','REJECTED','LEADER_TIMEOUT','VALIDATORS_TIMEOUT'].includes(status)};
+ return {status,execution,successful,finalized,failed:((status==='ACCEPTED'||finalized)&&execution==='ERROR')||['UNDETERMINED','CANCELED','CANCELLED','REJECTED','LEADER_TIMEOUT','VALIDATORS_TIMEOUT'].includes(status)};
 }
