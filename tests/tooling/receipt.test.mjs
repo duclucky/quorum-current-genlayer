@@ -21,3 +21,7 @@ test('pending NOT_VOTED and provisional leader errors do not terminate a resumab
   assert.equal(receiptState(tx).failed,false);assert.equal(receiptState(tx).successful,false);
  }
 });
+test('authoritative successful current result permits a successful receipt plus failed historical rotation',()=>{
+ assert.equal(receiptState({status:'FINALIZED',txExecutionResult:1,txExecutionResultName:'FINISHED_WITH_RETURN',consensus_data:{leader_receipt:[{execution_result:'SUCCESS'},{execution_result:'ERROR'}]}}).successful,true);
+ assert.equal(receiptState({status:'FINALIZED',txExecutionResult:1,txExecutionResultName:'FINISHED_WITH_ERROR'}).successful,false);
+});
