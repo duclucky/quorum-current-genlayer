@@ -108,5 +108,7 @@ Final accounting (`zero-liability.json`): received 14 GEN, withdrawn 14 GEN,
 locked 0 GEN, credits 0 GEN and native balance 0 GEN. No test purse remains locked
 or credited. Two browser decisions retain APPROVED/RECOVERED history and permit
 zero-value final closure; all value has already been delivered.
-Public GitHub, CI, production hosting, original Projects checker and submission
-are later phase gates and are not claimed here.
+Public GitHub and production hosting now exist; the initial public CI passed.
+Production HTTP and Chrome canonical-read evidence is in `evidence/production/`.
+The latest-commit CI, original Projects checker and submission packet are checked
+separately; this network record does not imply Portal acceptance or adoption.

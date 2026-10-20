@@ -21,6 +21,7 @@ docs/evidence/local/check-phase6.txt
 docs/evidence/local/check-phase7.txt
 docs/evidence/local/check-predeploy.txt
 docs/evidence/local/check-rpc-pacing.txt
+docs/evidence/local/check-serverless-types.txt
 docs/evidence/local/check-serverless.txt
 docs/evidence/local/frontend/browser-close-ready.png
 docs/evidence/local/frontend/browser-closed-canonical.png
@@ -59,7 +60,11 @@ docs/evidence/local/frontend/proposal-review.png
 docs/evidence/local/frontend/routes-responsive.json
 docs/evidence/local/language-audit.json
 docs/evidence/local/public-hygiene.json
+docs/evidence/production/browser-read.json
+docs/evidence/production/browser-read.png
 docs/evidence/production/http-head.txt
+docs/evidence/production/live-verification.json
+docs/evidence/production/startup-repair.json
 docs/evidence/studio-dev/browser-close.json
 docs/evidence/studio-dev/browser-cycle-inspection.json
 docs/evidence/studio-dev/browser-cycle-members-api.json
@@ -109,6 +114,7 @@ docs/evidence/studio-dev/withdraw-1-2.json
 docs/evidence/studio-dev/zero-liability.json
 frontend/.env.example
 frontend/api/genlayer-rpc.ts
+frontend/api/tsconfig.json
 frontend/index.html
 frontend/package.json
 frontend/server/rpc.ts

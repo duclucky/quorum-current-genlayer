@@ -406,8 +406,10 @@ copy-ready<=1000-character Portal description and precise limitations;postmortem
 registry and final master checklist reconciliation. Every pending evidence cell
 must be populated by real proof or remain a completion blocker.
 
-Current execution/deployment/browser principal proofs have passed. Public repo,
-hosting, CI, original checker and Portal submission remain pending later gates. Three-member public named ballots only. No
+Current execution/deployment/browser principal and production-read proofs have
+passed. Public repository and live app are linked in the README. Final-commit CI,
+original checker and Portal submission are verified separately before completion.
+Three-member public named ballots only. No
 identity/sybil proof,private data,external action execution or independent demo
 operators. Protocol decisions are not legal rulings. No performance/adoption
 claim is inferred from authenticated constitutive text or unsigned simulation.

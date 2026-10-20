@@ -13,6 +13,17 @@ The category is **Projects**: the React product, selected EVM wallet integration
 canonical contract views and contract-owned funded result form one contribution.
 There is exactly one Intelligent Contract: `QuorumCurrent`.
 
+## Live App
+
+[Open QuorumCurrent](https://quorum-current-genlayer.vercel.app).
+The production app reads the deployed Studio Dev contract through its same-origin
+RPC proxy. Chrome verified canonical proposal, member records, origin paths and
+the APPROVED result. [Production proof](docs/evidence/production/live-verification.json)
+and [browser proof](docs/evidence/production/browser-read.json).
+
+[CI workflow](https://github.com/duclucky/quorum-current-genlayer/actions/workflows/ci.yml)
+runs the same complete check on Windows, Node 24 and Python 3.12.
+
 ## Run and verify
 
 Requirements: Node 24, Python 3.12 and Git. Windows is the verified local platform.

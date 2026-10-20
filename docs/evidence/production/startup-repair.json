@@ -1,0 +1,19 @@
+{
+  "currentDeployment": "dpl_8FVNu5xaUqui3GgFLUJud5tdNgYu",
+  "status": "READY",
+  "liveUrl": "https://quorum-current-genlayer.vercel.app",
+  "superseded": [
+    {
+      "id": "dpl_5yUf8CjTEfB1VGdkewtyLR9BaQEL",
+      "status": "SUPERSEDED",
+      "reason": "Extensionless ESM import caused FUNCTION_INVOCATION_FAILED; no contract or value change"
+    },
+    {
+      "id": "dpl_9QLDawuocWtFPtvLdYxPKRkfEYRr",
+      "status": "SUPERSEDED",
+      "reason": "RPC worked; isolated Node API tsconfig removed serverless compiler type-library errors"
+    }
+  ],
+  "regression": "Native Node ESM entry startup failed before explicit .js import, then passed; separate API typecheck and full check pass",
+  "freshProductionChecks": "HTTP200, React root, RPC0xf22d, rendered canonical approved proposal and paths"
+}

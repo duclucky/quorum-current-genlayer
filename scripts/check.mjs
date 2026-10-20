@@ -9,6 +9,7 @@ const tasks=[
  ...['scripts/network.mjs','scripts/deploy.mjs','scripts/lifecycle.mjs','scripts/native-delivery.mjs'].map(file=>[process.execPath,['--check',file]]),
  [process.execPath,['node_modules/vitest/vitest.mjs','run','--root','frontend']],
  [process.execPath,['node_modules/typescript/bin/tsc','--noEmit','-p','frontend/tsconfig.json']],
+ [process.execPath,['node_modules/typescript/bin/tsc','--noEmit','-p','frontend/api/tsconfig.json']],
  [process.execPath,['node_modules/vite/bin/vite.js','build','frontend']],
 ];
 for(const [command,args] of tasks){

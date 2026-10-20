@@ -6,7 +6,7 @@ value delivery, adoption, CI or Portal acceptance.
 ## Contract and tooling
 
 Command: `npm run check` (Python 3.12 project `.venv`, Node 24).
-Current complete output: [serverless check](evidence/local/check-serverless.txt).
+Current complete output: [serverless types check](evidence/local/check-serverless-types.txt).
 
 - GenVM linter: `Lint passed (3 checks)`, `Validation passed`,
   `Contract: QuorumCurrent`, `Methods: 14 (8 view, 6 write)`.

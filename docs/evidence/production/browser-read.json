@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-20T10:53:24.755Z",
+  "url": "https://quorum-current-genlayer.vercel.app/decisions/qc-4ee9f395-fd03-4621-b27d-3c61f6a4e8b0",
+  "browser": "Chrome",
+  "origin": "Rendered production app through same-origin RPC proxy",
+  "canonicalTitleVisible": true,
+  "approvedVisible": true,
+  "originalVoicePathsVisible": true,
+  "englishDatesVisible": true,
+  "unavailable": false,
+  "failedToFetch": false,
+  "passed": true
+}

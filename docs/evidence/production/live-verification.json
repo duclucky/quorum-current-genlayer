@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-20T10:52:48.929Z",
+  "url": "https://quorum-current-genlayer.vercel.app",
+  "commands": [
+    "curl -I <live-url>",
+    "curl -s <live-url> | head -c 4000",
+    "POST /genlayer-rpc eth_chainId"
+  ],
+  "headStatus": 200,
+  "htmlStatus": 200,
+  "projectName": true,
+  "reactRoot": true,
+  "rpcStatus": 200,
+  "chainId": "0xf22d",
+  "deploymentId": "dpl_8FVNu5xaUqui3GgFLUJud5tdNgYu",
+  "framework": "vite",
+  "rootDirectory": "frontend",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "nodeVersion": "24.x",
+  "publicConfiguration": [
+    "VITE_CONTRACT_ADDRESS"
+  ],
+  "serverlessCompilerErrors": false,
+  "passed": true
+}
