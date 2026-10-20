@@ -1,0 +1,204 @@
+{
+  "scope": "Local frontend route/viewport checks; no blockchain execution",
+  "at": "2026-10-20T08:12:34.634Z",
+  "checks": [
+    {
+      "size": {
+        "width": 375,
+        "height": 812
+      },
+      "route": "/",
+      "main": "Your voice.Your scope.A clear decision.",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 375,
+        "height": 812
+      },
+      "route": "/decisions/new",
+      "main": "Start with a clear proposal.",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 375,
+        "height": 812
+      },
+      "route": "/decisions",
+      "main": "Decisions",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 375,
+        "height": 812
+      },
+      "route": "/decisions/not-configured",
+      "main": null,
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 375,
+        "height": 812
+      },
+      "route": "/account",
+      "main": "My account",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 375,
+        "height": 812
+      },
+      "route": "/guide",
+      "main": "A voice with clear boundaries.",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 812,
+        "height": 375
+      },
+      "route": "/",
+      "main": "Your voice.Your scope.A clear decision.",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 812,
+        "height": 375
+      },
+      "route": "/decisions/new",
+      "main": "Start with a clear proposal.",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 812,
+        "height": 375
+      },
+      "route": "/decisions",
+      "main": "Decisions",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 812,
+        "height": 375
+      },
+      "route": "/decisions/not-configured",
+      "main": null,
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 812,
+        "height": 375
+      },
+      "route": "/account",
+      "main": "My account",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 812,
+        "height": 375
+      },
+      "route": "/guide",
+      "main": "A voice with clear boundaries.",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "/",
+      "main": "Your voice.Your scope.A clear decision.",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "/decisions/new",
+      "main": "Start with a clear proposal.",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "/decisions",
+      "main": "Decisions",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "/decisions/not-configured",
+      "main": null,
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "/account",
+      "main": "My account",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    },
+    {
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "/guide",
+      "main": "A voice with clear boundaries.",
+      "nav": 4,
+      "overflow": false,
+      "title": "QuorumCurrent — Every voice, accounted for"
+    }
+  ]
+}

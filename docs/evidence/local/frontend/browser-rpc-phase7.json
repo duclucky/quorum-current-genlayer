@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-20T08:44:42.988Z",
+  "scope": "Browser read-only network identity; no wallet signature or deployment",
+  "icPath": "/genlayer-rpc",
+  "walletRpc": "https://studio-dev.genlayer.com/api",
+  "chainId": "0xf22d",
+  "passed": true,
+  "failedToFetch": false
+}

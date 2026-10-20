@@ -1,0 +1,56 @@
+
+> quorum-current-genlayer@0.1.0 check
+> node scripts/check.mjs
+
+
+✓ Lint passed (3 checks)
+✓ Validation passed
+  Contract: QuorumCurrent
+  Methods: 14 (8 view, 6 write)
+INFO: File `gltest.config.yaml` found in the current directory, using it
+INFO: Clearing artifacts directory: artifacts
+INFO: Using the following configuration:
+INFO:   RPC URL: http://127.0.0.1:4000/api
+INFO:   Selected Network: localnet
+INFO:   Available networks: ['localnet', 'studio_devnet']
+INFO:   Selected chain type: localnet
+INFO:   Available chains: localnet, studio_devnet, studionet, testnet_asimov, testnet_bradbury
+INFO:   Contracts directory: contracts
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False
+.............................................................            [100%]
+61 passed in 13.34s
+✔ raw Studio success requires execution, not finality alone (1.7341ms)
+✔ normalized SDK execution success and failure (0.2862ms)
+✔ contradictory, malformed and undecided receipts never certify success (1.1373ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 171.1566
+
+ RUN  v5.0.5 D:/Genlayer Project/quorum-current/frontend
+
+
+ Test Files  2 passed (2)
+      Tests  13 passed (13)
+   Start at  15:35:15
+   Duration  3.17s (environment 50%, tests 20%, import 15%, setup 13%, transform 1%, worker 1%)
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 446 modules transformed.
+rendering chunks...
+computing gzip size...
+frontend/dist/index.html                   0.54 kB │ gzip:  0.35 kB
+frontend/dist/assets/index-CtOlxves.css   14.65 kB │ gzip:  3.84 kB
+frontend/dist/assets/index-Boe4OcuA.js   307.84 kB │ gzip: 96.26 kB
+
+✓ built in 267ms
+CHECK PASS: contract lint, direct/tooling/frontend tests, TypeScript and production build.

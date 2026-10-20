@@ -1,0 +1,64 @@
+
+> quorum-current-genlayer@0.1.0 check
+> node scripts/check.mjs
+
+
+✓ Lint passed (3 checks)
+✓ Validation passed
+  Contract: QuorumCurrent
+  Methods: 14 (8 view, 6 write)
+INFO: File `gltest.config.yaml` found in the current directory, using it
+INFO: Clearing artifacts directory: artifacts
+INFO: Using the following configuration:
+INFO:   RPC URL: http://127.0.0.1:4000/api
+INFO:   Selected Network: localnet
+INFO:   Available networks: ['localnet', 'studio_devnet']
+INFO:   Selected chain type: localnet
+INFO:   Available chains: localnet, studio_devnet, studionet, testnet_asimov, testnet_bradbury
+INFO:   Contracts directory: contracts
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False
+.............................................................            [100%]
+61 passed in 14.13s
+✔ transaction projection never retains validator secrets or raw nested messages (2.3461ms)
+✔ proxy rejects transaction broadcasting and arbitrary simulation methods (0.5683ms)
+✔ raw Studio success requires execution, not finality alone (1.6214ms)
+✔ normalized SDK execution success and failure (0.2922ms)
+✔ contradictory, malformed and undecided receipts never certify success (1.2113ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 190.8108
+
+ RUN  v5.0.5 D:/Genlayer Project/quorum-current/frontend
+
+
+ Test Files  4 passed (4)
+      Tests  32 passed (32)
+   Start at  15:46:07
+   Duration  4.72s (environment 39%, tests 28%, import 19%, setup 10%, transform 2%, worker 1%)
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 479 modules transformed.
+rendering chunks...
+computing gzip size...
+frontend/dist/index.html                   0.54 kB │ gzip:   0.35 kB
+frontend/dist/assets/index-CtOlxves.css   14.65 kB │ gzip:   3.84 kB
+frontend/dist/assets/ccip-C5Toc1qT.js      2.83 kB │ gzip:   1.30 kB
+frontend/dist/assets/index-CpJ8bb9I.js   903.80 kB │ gzip: 221.09 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 407ms
+CHECK PASS: contract lint, direct/tooling/frontend tests, TypeScript and production build.
