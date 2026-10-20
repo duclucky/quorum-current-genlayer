@@ -1,8 +1,8 @@
 {
   "command": "private audit hygiene.py <project> plus git staged/path/history review",
   "gitRoot": "D:\\Genlayer Project\\quorum-current",
-  "currentFiles": 161,
-  "historyBlobsScanned": 242,
+  "currentFiles": 165,
+  "historyBlobsScanned": 262,
   "stagedFiles": 0,
   "pathViolations": [],
   "historicalPathViolations": [],

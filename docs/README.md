@@ -6,8 +6,8 @@
 - Project name: QuorumCurrent
 - Project slug: quorum-current
 - Category: Projects
-- Status: BUILDING; admission and frontend baseline passed, execution pending
-- Repository: local independent child; public repository pending Phase11
+- Status: SUBMITTED_PENDING_REVIEW; all 14 admission gates passed; full lifecycle execution passed; Portal receipt verified 2026-10-20
+- Repository: https://github.com/duclucky/quorum-current-genlayer
 - Target network: Studio Dev61997 under workspace D1
 
 ## One-sentence product hook

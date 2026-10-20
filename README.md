@@ -16,6 +16,8 @@ There is exactly one Intelligent Contract: `QuorumCurrent`.
 ## Live App
 
 [Open QuorumCurrent](https://quorum-current-genlayer.vercel.app).
+Follow the [12-step user guide](docs/USER-GUIDE.md) for exact controls, wallet
+roles, deadlines, funding, representation, review, withdrawal and recovery.
 The production app reads the deployed Studio Dev contract through its same-origin
 RPC proxy. Chrome verified canonical proposal, member records, origin paths and
 the APPROVED result. [Production proof](docs/evidence/production/live-verification.json)

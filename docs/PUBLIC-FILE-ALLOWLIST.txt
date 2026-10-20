@@ -8,8 +8,11 @@ docs/DEPLOYMENT-RUNBOOK.md
 docs/FRONTEND-BASELINE.md
 docs/LOCAL-VERIFICATION.md
 docs/NETWORK-VERIFICATION.md
+docs/POSTMORTEM.md
 docs/PUBLIC-FILE-ALLOWLIST.txt
 docs/README.md
+docs/RELEASE-AUDIT.md
+docs/USER-GUIDE.md
 docs/evidence/local/build-phase9.txt
 docs/evidence/local/check-browser-payment.txt
 docs/evidence/local/check-english.txt
@@ -60,6 +63,7 @@ docs/evidence/local/frontend/proposal-review.png
 docs/evidence/local/frontend/routes-responsive.json
 docs/evidence/local/language-audit.json
 docs/evidence/local/public-hygiene.json
+docs/evidence/local/readiness.json
 docs/evidence/production/browser-read.json
 docs/evidence/production/browser-read.png
 docs/evidence/production/http-head.txt

@@ -1,0 +1,14 @@
+{
+  "category": "projects",
+  "checker": "genlayer-precheck.ps1",
+  "checkerSHA256": "0e90ae93c72c9464b4b995db6896cf08ea8f8d14b66a847156012f830e896746",
+  "dynamicChecksSkipped": false,
+  "exitCode": 0,
+  "blockers": 0,
+  "warnings": 0,
+  "autoVerified": 6,
+  "npmCheck": "PASS",
+  "gltest": "PASS",
+  "gradeIsOfficialScore": false,
+  "legacyHeuristicsReconciled": "docs/RELEASE-AUDIT.md"
+}
