@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-20T10:25:24.488Z",
+  "id": "qc-cycle-proof-1792491133",
+  "status": "REJECTED",
+  "yes": 0,
+  "no": 0,
+  "abstain": 3,
+  "origins": [
+    {
+      "label": "APPLIES",
+      "member": 0,
+      "path": [
+        0,
+        1,
+        0
+      ],
+      "root": -1,
+      "vote": "ABSTAIN"
+    },
+    {
+      "label": "APPLIES",
+      "member": 1,
+      "path": [
+        1,
+        0,
+        1
+      ],
+      "root": -1,
+      "vote": "ABSTAIN"
+    },
+    {
+      "label": "APPLIES",
+      "member": 2,
+      "path": [
+        2,
+        0,
+        1,
+        0
+      ],
+      "root": -1,
+      "vote": "ABSTAIN"
+    }
+  ],
+  "accounting": {
+    "creditsGEN": "2",
+    "lockedGEN": "4",
+    "receivedGEN": "14",
+    "withdrawnGEN": "8"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "at": "2026-10-20T09:48:55.080Z",
+  "origin": "Chrome OKX frontend; read-only RPC corroboration",
+  "recovery": {
+    "hash": "0xad8d2cd17870af56cb4ce2a48cfb10777e8c8105c917c59896071f8fcfefe392",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0xad8d2cd17870af56cb4ce2a48cfb10777e8c8105c917c59896071f8fcfefe392",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T09:45:47.376369+00:00",
+    "observedAt": "2026-10-20T09:48:56.175Z"
+  },
+  "state": {
+    "decision": {
+      "abstain": 0,
+      "attempts": 0,
+      "beneficiary": "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+      "digest": "f7e3cb58e655869728d31e3d3df2ff6c7bf1edf7c4cb952296e06430076e0959",
+      "domain": "61997:0x10eb2739cd3336a69dbfe9caea2f9704d50708ce",
+      "expiry": 1792488960,
+      "id": "qc-eea191cf-c38f-4dce-825d-44433249d139",
+      "members": [
+        "0xc495ef51618d03267a1f227afe5b27b38c748272",
+        "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+        "0x79f9ecaa174b2f17afb57dfc8450684c238a033e"
+      ],
+      "no": 0,
+      "proposal": "Authorize publication of anonymous aggregate uptime monitoring, excluding personal data and marketing.",
+      "record_deadline": 1792488840,
+      "recorded": 0,
+      "sponsor": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+      "status": "RECOVERED",
+      "title": "Browser payment and recovery",
+      "version": "QC_V1",
+      "yes": 0,
+      "escrowGEN": "0"
+    },
+    "members": [
+      {
+        "address": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+        "at": 0,
+        "ballot": "NO",
+        "digest": "",
+        "label": "PENDING",
+        "recorded": false,
+        "scope": "",
+        "target": 0
+      },
+      {
+        "address": "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+        "at": 0,
+        "ballot": "NO",
+        "digest": "",
+        "label": "PENDING",
+        "recorded": false,
+        "scope": "",
+        "target": 1
+      },
+      {
+        "address": "0x79f9ecaa174b2f17afb57dfc8450684c238a033e",
+        "at": 0,
+        "ballot": "NO",
+        "digest": "",
+        "label": "PENDING",
+        "recorded": false,
+        "scope": "",
+        "target": 2
+      }
+    ],
+    "origins": [],
+    "accounting": {
+      "creditsGEN": "4",
+      "lockedGEN": "2",
+      "receivedGEN": "6",
+      "withdrawnGEN": "0"
+    },
+    "nativeBalanceGEN": "6"
+  },
+  "creditGEN": "2",
+  "walletBalanceGEN": "30.276695400582780555"
+}

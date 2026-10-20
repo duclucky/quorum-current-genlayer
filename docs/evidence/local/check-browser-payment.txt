@@ -1,0 +1,68 @@
+
+> quorum-current-genlayer@0.1.0 check
+> node scripts/check.mjs
+
+
+✓ Lint passed (3 checks)
+✓ Validation passed
+  Contract: QuorumCurrent
+  Methods: 14 (8 view, 6 write)
+INFO: File `gltest.config.yaml` found in the current directory, using it
+INFO: Clearing artifacts directory: artifacts
+INFO: Using the following configuration:
+INFO:   RPC URL: http://127.0.0.1:4000/api
+INFO:   Selected Network: localnet
+INFO:   Available networks: ['localnet', 'studio_devnet']
+INFO:   Selected chain type: localnet
+INFO:   Available chains: localnet, studio_devnet, studionet, testnet_asimov, testnet_bradbury
+INFO:   Contracts directory: contracts
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False
+.............................................................            [100%]
+61 passed in 13.54s
+✔ finalizing an older operation preserves a newer independently submitted operation (9.4806ms)
+✔ transaction projection never retains validator secrets or raw nested messages (2.3597ms)
+✔ proxy rejects transaction broadcasting and arbitrary simulation methods (0.5721ms)
+✔ fee simulation uses current server UTC and projects only the recommended public preset (33.7804ms)
+✔ raw Studio success requires execution, not finality alone (1.7713ms)
+✔ normalized SDK execution success and failure (0.2511ms)
+✔ contradictory, malformed and undecided receipts never certify success (1.2456ms)
+✔ pending NOT_VOTED and provisional leader errors do not terminate a resumable wait (0.2709ms)
+✔ authoritative successful current result permits a successful receipt plus failed historical rotation (0.321ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 227.8141
+
+ RUN  v5.0.5 D:/Genlayer Project/quorum-current/frontend
+
+
+ Test Files  4 passed (4)
+      Tests  32 passed (32)
+   Start at  16:38:59
+   Duration  4.77s (environment 39%, tests 27%, import 18%, setup 10%, transform 5%, worker 1%)
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 479 modules transformed.
+rendering chunks...
+computing gzip size...
+frontend/dist/index.html                   0.54 kB │ gzip:   0.35 kB
+frontend/dist/assets/index-CtOlxves.css   14.65 kB │ gzip:   3.84 kB
+frontend/dist/assets/ccip-CwZxwiH2.js      2.83 kB │ gzip:   1.30 kB
+frontend/dist/assets/index-Bz_rMqU1.js   905.32 kB │ gzip: 221.64 kB
+
+[plugin builtin:vite-reporter]
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 370ms
+CHECK PASS: contract lint, direct/tooling/frontend tests, TypeScript and production build.

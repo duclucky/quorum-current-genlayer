@@ -44,9 +44,9 @@ export function WalletProvider({children}:{children:ReactNode}){
   async function select(wallet:Wallet){
     setBusy(true);setError('');
     try{
-      const accounts=await wallet.provider.request({method:'eth_requestAccounts'});const address=Array.isArray(accounts)?accounts[0]:null;if(typeof address!=='string'||!isAddress(address))throw Error('This wallet did not return a valid account. Choose another wallet.');
+      const accounts=await wallet.provider.request({method:'eth_requestAccounts'});const address=Array.isArray(accounts)?accounts[0]:null;if(typeof address!=='string'||!isAddress(address))throw Error('This wallet did not return a valid account. Unlock it and reconnect.');
       await ensureNetwork(wallet.provider);try{sessionStorage.setItem('qc.selected-wallet',JSON.stringify({id:wallet.id,name:wallet.name}));}catch{/* Storage preferences are optional. */}setProvider(wallet.provider);setAccount(address);close();
-    }catch{setError('Connection was not completed. Unlock your wallet and try again.');}finally{setBusy(false);}
+    }catch(error){const code=(error as {code?:number})?.code;setError(code===4001?'The wallet request was declined. Choose the wallet again when ready.':code===-32002?'A wallet request is already open. Complete or cancel it in your extension.':error instanceof Error&&/Switch to Studio Dev|has not switched|valid account/.test(error.message)?error.message:'Connection was not completed. Unlock your wallet and try again.');}finally{setBusy(false);}
   }
   return <WalletContext.Provider value={{account,provider,disconnect,open:()=>{trigger.current=document.activeElement as HTMLElement;setError('');window.dispatchEvent(new Event('eip6963:requestProvider'));dialog.current?.showModal();}}}>
     {children}

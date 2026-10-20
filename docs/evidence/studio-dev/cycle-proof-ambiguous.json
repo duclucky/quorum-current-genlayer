@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-20T10:15:42.465Z",
+  "id": "qc-cycle-proof-1792491133",
+  "member1Recorded": false,
+  "hashQuery": {
+    "code": -32001,
+    "rollback": false,
+    "budget": false,
+    "rateLimit": false,
+    "transactionNotFound": true
+  }
+}

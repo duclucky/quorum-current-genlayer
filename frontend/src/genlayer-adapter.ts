@@ -1,7 +1,7 @@
 import {createClient} from 'genlayer-js';
 import {TransactionHashVariant,CalldataAddress} from 'genlayer-js/types';
 import {formatEther,isAddress,hexToBytes,type Address,type Hex} from 'viem';
-import type {ContractAdapter,Decision,Member,NewDecision,Origin,TxUpdate} from './types';
+import type {ContractAdapter,Decision,DecisionSummary,Member,NewDecision,Origin,TxUpdate} from './types';
 import type {Provider} from './wallet';
 import {chain,ensureNetwork} from './network';
 import {receiptState} from './receipt';
@@ -13,6 +13,14 @@ const json=<T,>(value:unknown):T=>{if(typeof value!=='string')throw Error('The c
 const pause=(ms:number)=>new Promise(resolve=>setTimeout(resolve,ms));
 const hash=(v:unknown):v is Hex=>typeof v==='string'&&/^0x[0-9a-f]{64}$/i.test(v);
 const asAddress=(value:string)=>{if(!isAddress(value))throw Error('An EVM address is invalid.');return new CalldataAddress(hexToBytes(value));};
+function submissionError(error:unknown){
+ const value=error as {code?:unknown;name?:unknown;cause?:unknown};
+ let code=typeof value?.code==='number'?value.code:undefined;
+ if(code===undefined&&value?.cause&&typeof value.cause==='object')code=typeof (value.cause as {code?:unknown}).code==='number'?(value.cause as {code:number}).code:undefined;
+ const kind=typeof value?.name==='string'&&/^[A-Za-z]+Error$/.test(value.name)?value.name:'WalletError';
+ const reason=code===4001?'The wallet request was declined.':code===-32002?'Complete or cancel the open request in your wallet.':'Signing or submission did not complete. Check your selected wallet and try again.';
+ return Error(reason+` (${kind}${code===undefined?'':', code '+code}.)`);
+}
 
 export function createGenLayerAdapter(options:Options):ContractAdapter{
  if(!options.address)return unconfiguredAdapter;
@@ -31,7 +39,7 @@ export function createGenLayerAdapter(options:Options):ContractAdapter{
    if(receipt.failed)throw Error('The network could not execute this action. Read the latest state before retrying.');
    if(receipt.successful&&receipt.finalized){update({stage:'finalized',hash:tx});return;}
    if(receipt.successful)update({stage:'accepted',hash:tx});
-   if(i+1<(options.maxPolls??240))await pause(options.pollMs??2500);
+   if(i+1<(options.maxPolls??240))await pause(options.pollMs??8000);
   }
   throw Error('Finality is still pending. Retry this action to check the existing transaction; it will not be sent twice.');
  }
@@ -42,6 +50,7 @@ export function createGenLayerAdapter(options:Options):ContractAdapter{
   const key=JSON.stringify([account.toLowerCase(),method,args]);
   let tx=pending.get(key);
   if(!tx){
+   update({stage:'preparing',message:'Checking your selected wallet and Studio Dev connection.'});
    await ensureNetwork(provider);
    const authorized=await provider.request({method:'eth_accounts'});
    if(!Array.isArray(authorized)||!authorized.some(a=>typeof a==='string'&&a.toLowerCase()===account.toLowerCase()))throw Error('The selected account changed. Reconnect your wallet.');
@@ -56,11 +65,12 @@ export function createGenLayerAdapter(options:Options):ContractAdapter{
    }};
    // The selected string account is normalized by the real SDK here, never overridden per call.
    const writer=createClient({chain:selectedChain,account:account as Address,provider:selected});
+   update({stage:'preparing',message:'Estimating the network fee deposit before asking for a signature.'});
    const estimate=await writer.estimateTransactionFeesForWrite({address,functionName:method,args,value});
    const fees={distribution:estimate.distribution,messageAllocations:estimate.messageAllocations,feeValue:estimate.feeValue};
    update({stage:'signature',message:`Network fee deposit: ${formatEther(estimate.feeValue)} GEN, separate from the decision budget.`});
    try{const sent=await writer.writeContract({address,functionName:method,args,value,fees});if(hash(sent)){tx=sent;pending.set(key,sent);}}
-   catch{tx=pending.get(key);if(!tx)throw Error('Signing or submission did not complete. Check your selected wallet and try again.');}
+   catch(error){tx=pending.get(key);if(!tx)throw submissionError(error);}
    tx=tx??pending.get(key);
   }else update({stage:'submitted',hash:tx,message:'Checking your existing transaction.'});
   if(!tx)throw Error('No transaction identifier was returned. Refresh canonical state before trying again.');
@@ -79,7 +89,7 @@ export function createGenLayerAdapter(options:Options):ContractAdapter{
  }
  return {
   configured:true,decision,
-  list:async()=>{const all:Decision[]=[];for(let offset=0;;offset+=50){const ids=json<string[]>(await read('list_decisions',[offset,50]));all.push(...await Promise.all(ids.map(decision)));if(ids.length<50)break;}return all.reverse();},
+  list:async()=>{const all:DecisionSummary[]=[];for(let offset=0;;offset+=50){const ids=json<string[]>(await read('list_decisions',[offset,50]));for(const id of ids){if(all.length)await pause(options.pollMs??2200);const d=json<Record<string,unknown>>(await read('get_decision',[id]));const recorded=Number(d.recorded);if(d.id!==id||!['COLLECTING','READY','RETRYABLE','APPROVED','REJECTED','RECOVERED','CLOSED'].includes(String(d.status))||!Number.isInteger(recorded)||recorded<0||recorded>3)throw Error('The decision summary is incomplete. Retry the canonical read.');all.push({id,title:String(d.title),status:d.status as Decision['status'],recordDeadline:Number(d.record_deadline),recorded});}if(ids.length<50)break;}return all.reverse();},
   credit:async owner=>formatEther(BigInt(String(await read('get_credit',[asAddress(owner)])))),
   create:async(input:NewDecision,update)=>{const fingerprint=JSON.stringify(input);if(!prepared||prepared.fingerprint!==fingerprint)prepared={fingerprint,id:'qc-'+crypto.randomUUID()};const id=prepared.id;await write('create_decision',[id,input.title,input.proposal,...input.members.map(asAddress),asAddress(input.beneficiary),input.recordDeadline,input.expiry],update,2n*10n**18n);prepared=null;await decision(id);return id;},
   record:async(id,digest,target,scope,ballot,update)=>{await write('record_member',[id,digest,target,scope,ballot],update);await decision(id);},

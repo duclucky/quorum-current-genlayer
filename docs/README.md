@@ -171,7 +171,7 @@ funded settlement. No LLM chooses target,ballot,threshold,recipient,amount or ro
 | Contract count | PASS_ADMISSION | One independent state/accounting owner; no mirror consumer |
 | Differentiation | PASS_ADMISSION | Topic activation plus transitive origin conservation differs from breach punishment,motion equivalence,policy conjunction and pledge closure |
 | Claim-to-code | PASS_ADMISSION | Complete planned method/view/test/evidence matrix below |
-| Full lifecycle | PASS_ADMISSION / PENDING_EXECUTION | Complete positive/retry/cycle/partial/expiry/value/browser acceptance design; real execution still required |
+| Full lifecycle | PASS_ADMISSION / PASS_EXECUTION | Finalized positive/cycle/UNCLEAR/partial/expiry/value evidence; browser principal plus two owner-authorized API actors; NETWORK-VERIFICATION.md and BROWSER-PAYMENT-VERIFICATION.md |
 | Scope honesty | PASS_ADMISSION | Protocol choices only; no identity,external execution,performance,independent demo operators or adoption claim |
 
 ## State model
@@ -306,13 +306,13 @@ for external execution belong to a future independently evidenced integration.
 
 | Canonical state | User action | Contract write | UI component | Frontend test | Evidence status |
 | --- | --- | --- | --- | --- | --- |
-| unused ID | Prepare/review/fund2GEN | create_decision | CreateDecision review form | valid/invalid review,exact2GEN SDK adapter,finality/reload | Local form proof;real write PENDING |
-| COLLECTING,eligible member | Record own representation | record_member | RecordMember | role/time/digest/target,selected wallet,canonical reload | UI built;real write PENDING |
-| READY/RETRYABLE,review window | Resolve/retry scopes | review | DecisionDetail next step | exact boundary,role,accepted/finalized/error/retry,reload | UI built;real write PENDING |
-| unsettled,expiry | Recover own budget | recover | DecisionDetail contextual action | sponsor/time/stale-phase gating,credit reload | UI built;real write PENDING |
-| own positive credit | Withdraw | withdraw | Account | no fake balance,own credit,real SDK value/destination,delivery feedback | UI built;real write PENDING |
-| zero-liability terminal | Close completed decision | close | DecisionDetail contextual action | sponsor/zero-liability only,closed reload | Minimal control pending Phase7;not yet browser-complete |
-| all phases | Read/filter/history/paths | views only | Decisions/detail/account | canonical empty/error/search/path/route tests |13 local tests and18 viewport checks baseline;deployed read PENDING |
+| unused ID | Prepare/review/fund2GEN | create_decision | CreateDecision review form | valid/invalid review,exact2GEN SDK adapter,finality/reload | PASS: browser funding receipts and canonical decision in BROWSER-PAYMENT-VERIFICATION.md |
+| COLLECTING,eligible member | Record own representation | record_member | RecordMember | role/time/digest/target,selected wallet,canonical reload | PASS: actual Chrome/OKX action, finalized receipt and canonical reload in BROWSER-PAYMENT-VERIFICATION.md |
+| READY/RETRYABLE,review window | Resolve/retry scopes | review | DecisionDetail next step | exact boundary,role,accepted/finalized/error/retry,reload | PASS: actual Chrome/OKX action, finalized receipt and canonical reload in BROWSER-PAYMENT-VERIFICATION.md |
+| unsettled,expiry | Recover own budget | recover | DecisionDetail contextual action | sponsor/time/stale-phase gating,credit reload | PASS: actual Chrome/OKX action, finalized receipt and canonical reload in BROWSER-PAYMENT-VERIFICATION.md |
+| own positive credit | Withdraw | withdraw | Account | no fake balance,own credit,real SDK value/destination,delivery feedback | PASS: actual Chrome/OKX action, finalized receipt and canonical reload in BROWSER-PAYMENT-VERIFICATION.md |
+| zero-liability terminal | Close completed decision | close | DecisionDetail contextual action | sponsor/zero-liability only,closed reload | PASS: browser-close.json, FINALIZED/SUCCESS and canonical CLOSED |
+| all phases | Read/filter/history/paths | views only | Decisions/detail/account | canonical empty/error/search/path/route tests |PASS: 33 frontend tests,18 baseline viewport checks and actual canonical decision/path/credit reads |
 
 ## Threat model and test plan
 
@@ -340,12 +340,12 @@ genvm-lint check,all direct/tooling/frontend tests,TypeScript and production bui
 
 | Claim | Contract method/state | View/read | Test | Network evidence |
 | --- | --- | --- | --- | --- |
-| Topic-scoped proxies are independently judged | record_member,review/labels | get_member,get_attempt | valid scopes,injection,malicious leader replay | PENDING Phase8 finalized review and bound source |
-| Every original voice counted once through a valid path | review/resolution/tally | get_resolution,get_decision | exhaustive graph+ballot reference,cascade/cycle/fixed threshold | PENDING Phase8 canonical origin paths/tally |
-| Only fixed beneficiary/sponsor receives2GEN | create_decision,review,recover | get_credit,get_accounting | amount/recipient/duplicate/isolated decisions | PENDING Phase8 receipts/state/native proof |
-| Partial/unclear rounds recover without keeper | recover/RECOVERED | get_decision,get_credit | stale-phase expiry -1/0/+1,missing records,retrycap | PENDING Phase8 recovery receipt/read |
-| Own-credit withdrawal closes liabilities | withdraw,close | get_credit,get_accounting | EVM boundary/double draw/zero closure | PENDING exact native debit,child/recipient evidence |
-| Browser completes every claimed action | typed adapter plus route controls | finalized decision/credit reload | real SDK adapter and full UI rows above | PENDING Phase7/8 browser signed lifecycle |
+| Topic-scoped proxies are independently judged | record_member,review/labels | get_member,get_attempt | valid scopes,injection,malicious leader replay | PASS: browser-grant-review.json and qc-cascade-1792486986-reviewed.json |
+| Every original voice counted once through a valid path | review/resolution/tally | get_resolution,get_decision | exhaustive graph+ballot reference,cascade/cycle/fixed threshold | PASS: browser-grant-review.json and qc-cycle-proof-1792491133-verdict.json |
+| Only fixed beneficiary/sponsor receives2GEN | create_decision,review,recover | get_credit,get_accounting | amount/recipient/duplicate/isolated decisions | PASS: browser-grant-withdrawal.json, browser-partial-withdrawal.json, API withdrawal proofs |
+| Partial/unclear rounds recover without keeper | recover/RECOVERED | get_decision,get_credit | stale-phase expiry -1/0/+1,missing records,retrycap | PASS: UNCLEAR recovered record and browser-partial-recovery.json |
+| Own-credit withdrawal closes liabilities | withdraw,close | get_credit,get_accounting | EVM boundary/double draw/zero closure | PASS: exact native debit, matching2GEN recipient message and wallet balance increase; zero-liability.json |
+| Browser completes every claimed action | typed adapter plus route controls | finalized decision/credit reload | real SDK adapter and full UI rows above | PASS: six user actions have Chrome/OKX proof; other member signatures explicitly use API |
 
 ## Analogue,differentiation and adoption path
 
@@ -406,8 +406,8 @@ copy-ready<=1000-character Portal description and precise limitations;postmortem
 registry and final master checklist reconciliation. Every pending evidence cell
 must be populated by real proof or remain a completion blocker.
 
-Current limits: execution/deployment/browser writes/public repo/hosting/CI and
-Portal submission are PENDING. Three-member public named ballots only. No
+Current execution/deployment/browser principal proofs have passed. Public repo,
+hosting, CI, original checker and Portal submission remain pending later gates. Three-member public named ballots only. No
 identity/sybil proof,private data,external action execution or independent demo
 operators. Protocol decisions are not legal rulings. No performance/adoption
 claim is inferred from authenticated constitutive text or unsigned simulation.

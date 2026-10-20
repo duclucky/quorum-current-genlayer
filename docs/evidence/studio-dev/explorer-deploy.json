@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-20T10:35:43.463Z",
+  "url": "https://explorer-studio-dev.genlayer.com/tx/0x04a0916e815cf68a37614724b8823254461eb98c3ba52c33fd68617e32ae7c9e",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "resultCode": "Return",
+  "contract": "0x10eb2739Cd3336a69DBfE9cAeA2F9704D50708ce",
+  "source": "Chrome rendered Explorer overview and GenVM Execution"
+}

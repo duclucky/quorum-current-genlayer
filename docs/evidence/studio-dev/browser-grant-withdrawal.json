@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-20T10:32:54.849Z",
+  "origin": "Chrome OKX grant withdrawal; read-only corroboration",
+  "actor": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+  "receipt": {
+    "hash": "0x836c80398f4952e655649e57e4bce730c3aef3aca99fa6aa1e64eaa757a3b4cb",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0x836c80398f4952e655649e57e4bce730c3aef3aca99fa6aa1e64eaa757a3b4cb",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T10:31:27.013719+00:00",
+    "observedAt": "2026-10-20T10:32:54.851Z"
+  },
+  "before": {
+    "contractBalanceGEN": "4",
+    "walletBalanceGEN": "28.276175807832775617",
+    "creditGEN": "2"
+  },
+  "after": {
+    "contractBalanceGEN": "2",
+    "walletBalanceGEN": "30.276049502332774794",
+    "creditGEN": "0"
+  },
+  "contractDebitGEN": "2",
+  "walletNetIncreaseGEN": "1.999873694499999177",
+  "messages": [
+    {
+      "recipient": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "2"
+    }
+  ]
+}

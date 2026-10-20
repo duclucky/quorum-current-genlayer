@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-20T09:50:53.602Z",
+  "origin": "Chrome OKX frontend; read-only RPC corroboration",
+  "withdrawal": {
+    "hash": "0x60f0ca761efd695d41e2d9991aaef8c32fe16561f1d689181d7e2fb71a3924b2",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0x60f0ca761efd695d41e2d9991aaef8c32fe16561f1d689181d7e2fb71a3924b2",
+    "status": "ACCEPTED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": false,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T09:50:21.655553+00:00",
+    "observedAt": "2026-10-20T09:50:53.604Z"
+  },
+  "creditGEN": "2",
+  "contractBalanceGEN": "6",
+  "walletBalanceGEN": "30.275935601382770203",
+  "accounting": {
+    "creditsGEN": "4",
+    "lockedGEN": "2",
+    "receivedGEN": "6",
+    "withdrawnGEN": "0"
+  }
+}

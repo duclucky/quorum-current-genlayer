@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-20T10:37:02.938Z",
+  "id": "qc-bbc3149b-5ad5-4fce-b69c-f4f278aad711",
+  "actor": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+  "origin": "Chrome OKX partial-round recovery",
+  "receipt": {
+    "hash": "0xfc00ccc1d124888f6f4d8b0cd54d446b974d14f1ef6d6996ead2a1394f865680",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0xfc00ccc1d124888f6f4d8b0cd54d446b974d14f1ef6d6996ead2a1394f865680",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T10:35:52.545939+00:00",
+    "observedAt": "2026-10-20T10:37:03.361Z"
+  },
+  "status": "RECOVERED",
+  "recorded": 2,
+  "creditGEN": "2",
+  "contractBalanceGEN": "2",
+  "walletBalanceGEN": "30.275970872332773971"
+}

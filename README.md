@@ -25,8 +25,8 @@ npm run check
 npm run dev
 ```
 
-`npm run check` runs pinned GenVM lint, 61 Python tests, 5 Node tooling tests,
-32 frontend tests including the real SDK adapter, TypeScript and a production
+`npm run check` runs pinned GenVM lint, 61 Python tests, 11 Node tooling tests,
+33 frontend tests including the real SDK adapter, TypeScript and a production
 build. The graph reference test covers 1,728 graph/ballot cases. No critical
 tests are skipped. [Local proof and limits](docs/LOCAL-VERIFICATION.md).
 
@@ -49,8 +49,21 @@ node scripts/deploy.mjs deploy
 node scripts/lifecycle.mjs inspect
 ```
 
-Deployment is not yet claimed. A successful exact-source unsigned constructor
-and schema smoke is recorded separately from any signed deployment or value flow.
+## Deployed Contract
+
+Studio Dev: [`0x10eb2739Cd3336a69DBfE9cAeA2F9704D50708ce`](https://explorer-studio-dev.genlayer.com/address/0x10eb2739Cd3336a69DBfE9cAeA2F9704D50708ce).
+[Deployment transaction](https://explorer-studio-dev.genlayer.com/tx/0x04a0916e815cf68a37614724b8823254461eb98c3ba52c33fd68617e32ae7c9e):
+FINALIZED and GenVM SUCCESS, also verified in the rendered Explorer.
+[Network lifecycle evidence](docs/NETWORK-VERIFICATION.md) distinguishes API
+actors from [Chrome/OKX browser payment proof](docs/BROWSER-PAYMENT-VERIFICATION.md).
+Approved delegation, circular abstention, UNCLEAR retry and expiry recovery have
+real receipts and canonical state. All seven 2 GEN purses were withdrawn:
+received 14 GEN, withdrawn 14 GEN, locked 0 GEN, credits 0 GEN and native balance
+0 GEN in the [final accounting proof](docs/evidence/studio-dev/zero-liability.json).
+
+For the frontend, copy `frontend/.env.example` to the ignored `frontend/.env`
+and set only `VITE_CONTRACT_ADDRESS` to the address above, then run `npm run dev`.
+
 Scripts journal signed transaction hashes before broadcast and resume existing
 operations. Deployment identity binds the source commit/hash, runner, SDK,
 network and contract address. Never manually replay an ambiguous value transfer.
@@ -59,7 +72,7 @@ the current network policy before signing.
 
 ## Reuse and trust limits
 
-The six writes create, ratify, review, recover, withdraw and close protocol
+The six writes create decisions, record representation, review, recover, withdraw and close protocol
 decisions; eight views expose canonical proposal, member, attempt, path, credit,
 accounting, version and listing state. No backend chooses the verdict or payout.
 The [specification](docs/README.md) defines the authority matrix, state machine,

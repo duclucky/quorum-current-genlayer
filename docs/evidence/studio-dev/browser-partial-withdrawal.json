@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-20T10:39:03.293Z",
+  "origin": "Chrome OKX final refund withdrawal; read-only corroboration",
+  "actor": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+  "receipt": {
+    "hash": "0x877364adf35eb4eb4fb742fabca56c59a5a636ed40bf01c6c9f5015f4aba8adc",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0x877364adf35eb4eb4fb742fabca56c59a5a636ed40bf01c6c9f5015f4aba8adc",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T10:37:35.233288+00:00",
+    "observedAt": "2026-10-20T10:39:03.294Z"
+  },
+  "before": {
+    "contractBalanceGEN": "2",
+    "walletBalanceGEN": "30.275970872332773971",
+    "creditGEN": "2"
+  },
+  "after": {
+    "contractBalanceGEN": "0",
+    "walletBalanceGEN": "32.275844566832773148",
+    "creditGEN": "0"
+  },
+  "contractDebitGEN": "2",
+  "walletNetIncreaseGEN": "1.999873694499999177",
+  "messages": [
+    {
+      "recipient": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "2"
+    }
+  ],
+  "accounting": {
+    "creditsGEN": "0",
+    "lockedGEN": "0",
+    "receivedGEN": "14",
+    "withdrawnGEN": "14"
+  }
+}

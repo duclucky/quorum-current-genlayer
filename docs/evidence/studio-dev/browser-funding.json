@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-20T09:33:46.385Z",
+  "network": "studio-dev",
+  "chainId": 61997,
+  "origin": "Chrome UI plus selected OKX wallet; this command only verifies reads",
+  "receipt": {
+    "hash": "0xadbcd588078bb022c78bc8b9c2a64c527d44582d5775271e5f2c1b4d3bf303a6",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0xadbcd588078bb022c78bc8b9c2a64c527d44582d5775271e5f2c1b4d3bf303a6",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T09:29:40.802039+00:00",
+    "observedAt": "2026-10-20T09:33:46.387Z"
+  },
+  "id": "qc-eea191cf-c38f-4dce-825d-44433249d139",
+  "sponsor": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+  "escrowGEN": "2",
+  "status": "COLLECTING",
+  "contractNativeBalanceGEN": "6",
+  "browserWorkflow": "Funding finalized; record/recovery/withdrawal pending"
+}

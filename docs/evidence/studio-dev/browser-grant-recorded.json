@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-20T10:26:39.732Z",
+  "id": "qc-4ee9f395-fd03-4621-b27d-3c61f6a4e8b0",
+  "origin": "Chrome OKX member0; members1/2 API",
+  "receipt": {
+    "hash": "0xe5f3a72c665c59c27e2ab1b13c2a7fafb452fd2a0092014fbdc2995b4f575826",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0xe5f3a72c665c59c27e2ab1b13c2a7fafb452fd2a0092014fbdc2995b4f575826",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T10:25:15.415258+00:00",
+    "observedAt": "2026-10-20T10:26:40.199Z"
+  },
+  "status": "READY",
+  "recorded": 3,
+  "member0": {
+    "address": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+    "at": 1792491915,
+    "ballot": "NO",
+    "digest": "b8c7b445b1c40f7cd95bdfd9a54941f3b23123a52c8e83af83414c2b981a82a5",
+    "label": "PENDING",
+    "recorded": true,
+    "scope": "May represent me only on publication of anonymous aggregate uptime monitoring statistics; exclude personal-data disclosure and promotional marketing.",
+    "target": 1
+  },
+  "recordDeadline": 1792492080,
+  "expiry": 1792493100
+}

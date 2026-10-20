@@ -1,0 +1,14 @@
+{
+  "gitRoot": "D:/Genlayer Project/quorum-current",
+  "currentFiles": 150,
+  "historyBlobsScanned": 109,
+  "pathViolations": [],
+  "historicalPathViolations": [],
+  "actualSecretMatches": [],
+  "ignoredEnvExists": true,
+  "ignoredEnvStatus": [
+    ".env",
+    "frontend/.env"
+  ],
+  "passed": true
+}

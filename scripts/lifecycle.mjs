@@ -1,4 +1,5 @@
 import {formatEther} from 'viem';
+import {waitForNativeDelivery} from './native-delivery.mjs';
 import {accounts,active,view,canonical,accounting,asAddress,operation,inspect,load,save,rpc,GEN,safeLog,reportFailure,estimateWriteFees} from './network.mjs';
 const actors=accounts();
 async function write(name,method,args,actor=actors[0],value=0n){
@@ -16,7 +17,7 @@ async function create(kind){
   cases[kind]={id:'qc-'+kind+'-'+current,kind,recordDeadline:current+(kind==='partial'?60:180),expiry:current+(kind==='partial'?120:900),at:new Date().toISOString()};save('cases.json',cases);
  }
  const item=cases[kind];
- if(!load('operations.json')?.[item.id+'-create']?.hash){const t=Math.floor(Date.now()/1000);item.recordDeadline=t+(kind==='partial'?120:360);item.expiry=t+(kind==='partial'?240:1500);save('cases.json',cases);}
+ if(!load('operations.json')?.[item.id+'-create']?.hash){const t=Math.floor(Date.now()/1000);item.recordDeadline=t+(kind==='partial'?120:kind==='unclear'?300:360);item.expiry=t+(kind==='partial'?240:kind==='unclear'?480:1500);save('cases.json',cases);}
  const title={cascade:'Monitoring council grant',cycle:'Circular council representation',unclear:'Ambiguous council delegation',partial:'Incomplete council recovery'}[kind];
  await write(item.id+'-create','create_decision',[item.id,title,'Authorize publication of aggregate uptime monitoring statistics, excluding personal data and promotional marketing.',...actors.map(a=>asAddress(a.address)),asAddress(actors[1].address),item.recordDeadline,item.expiry],actors[0],2n*GEN);
  save(item.id+'-created.json',await canonical(item.id));return item;
@@ -56,8 +57,8 @@ async function withdraw(index){
  const before={contract:BigInt(await rpc('eth_getBalance',[address,'latest'])),recipient:BigInt(await rpc('eth_getBalance',[actor.address,'latest']))};
  const name='withdraw-'+index+'-'+(await accounting()).withdrawnGEN;
  const result=await write(name,'withdraw',[],actor);
- const after={contract:BigInt(await rpc('eth_getBalance',[address,'latest'])),recipient:BigInt(await rpc('eth_getBalance',[actor.address,'latest']))};
- const ownAfter=BigInt(await view('get_credit',[asAddress(actor.address)]));
+ const after=await waitForNativeDelivery({before,amount:credit,actor:actor.address,messages:result.raw.messages??[],read:async()=>({contract:BigInt(await rpc('eth_getBalance',[address,'latest'])),recipient:BigInt(await rpc('eth_getBalance',[actor.address,'latest'])),credit:BigInt(await view('get_credit',[asAddress(actor.address)]))})});
+ const ownAfter=after.credit;
  const evidence={at:new Date().toISOString(),actor:actor.address,amountGEN:formatEther(credit),receipt:result.safe,contractBeforeGEN:formatEther(before.contract),contractAfterGEN:formatEther(after.contract),exactNativeContractDebit:before.contract-after.contract===credit,recipientBeforeGEN:formatEther(before.recipient),recipientAfterGEN:formatEther(after.recipient),recipientNetChangeGEN:formatEther(after.recipient-before.recipient),ownCreditAfterGEN:formatEther(ownAfter),accounting:await accounting()};
  save(name+'.json',evidence);safeLog(evidence);
  if(!evidence.exactNativeContractDebit||ownAfter!==0n)throw Error('Native GEN delivery not proven; do not close or duplicate withdrawal');

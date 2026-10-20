@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-20T09:17:45.501Z",
+  "network": "studio-dev",
+  "chainId": 61997,
+  "scope": "Unsigned simulation diagnosis; no signed clock override",
+  "defaultSimulation": "create_decision rejected Invalid deadline interval despite current future bounds",
+  "controlledSimulation": "Exact same write parameters with sim_config.genvm_datetime=currentUTC returned SUCCESS",
+  "constructorClockProbe": "host UTC and GenVM UTC matched; bounded time comparison true",
+  "sourceVerification": "gen_getContractCode base64 decoded SHA256 exactly matched deployed source",
+  "fix": "Current UTC injected only into unsigned fee simulations. Real signed writes keep network transaction time.",
+  "references": [
+    "https://github.com/genlayerlabs/genlayer-studio/blob/main/backend/protocol_rpc/endpoints.py"
+  ],
+  "firstValueHash": "0x951a0c42bfd741fe793b7de115211ac2817d578226f304c76ed737d28abc1522"
+}

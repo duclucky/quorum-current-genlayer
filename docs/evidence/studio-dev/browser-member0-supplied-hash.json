@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-20T10:16:02.385Z",
+  "receipt": {
+    "hash": "0xf2b512c2ef659d94d707e56608b44bc79df433e0ef389ee7ac934b84849c906c",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0xf2b512c2ef659d94d707e56608b44bc79df433e0ef389ee7ac934b84849c906c",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T02:34:54.045536+00:00",
+    "observedAt": "2026-10-20T10:16:02.386Z"
+  },
+  "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+  "recipient": "0xFd64D6cD0816970CE6151aa5232cf8f4Bdf41D32"
+}

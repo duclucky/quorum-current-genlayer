@@ -6,20 +6,22 @@ value delivery, adoption, CI or Portal acceptance.
 ## Contract and tooling
 
 Command: `npm run check` (Python 3.12 project `.venv`, Node 24).
-Current complete output: [phase 7 check](evidence/local/check-phase7.txt).
+Current complete output: [list RPC check](evidence/local/check-list-rpc.txt).
 
 - GenVM linter: `Lint passed (3 checks)`, `Validation passed`,
   `Contract: QuorumCurrent`, `Methods: 14 (8 view, 6 write)`.
 - Python: `61 passed`; real SDK storage/direct execution, 1,728 graph/ballot
   reference cases within the graph test, authority, temporal, retry, accounting,
   EVM message and AST/payability checks. No skips or xfails.
-- Node tooling: `tests 5`, `pass 5`, `fail 0`; raw/normalized/contradictory
-  receipt handling and RPC secret projection.
-- Frontend: `Test Files 4 passed`, `Tests 32 passed`; UI lifecycle controls,
+- Node tooling: `tests 11`, `pass 11`, `fail 0`; raw/normalized/contradictory
+  receipt handling, RPC secret projection, concurrent journal preservation and
+  asynchronous recipient-delivery verification.
+- Frontend: `Test Files 4 passed`, `Tests 33 passed`; UI lifecycle controls,
   selected wallet, restored current authorization, EVM chain handling, actual
-  SDK project adapter calldata, exact 2 GEN, finality/retry and canonical reload.
+  SDK project adapter calldata, exact 2 GEN, finality/retry, canonical reload and
+  one-view-per-decision summaries rather than full-detail list fan-out.
 - TypeScript and Vite production build passed. The SDK makes the initial bundle
-  approximately 904 kB (221 kB gzip); Vite reports its standard size warning.
+  approximately 905 kB (222 kB gzip); Vite reports its standard size warning.
 
 ## Test-first corrections
 
@@ -52,5 +54,7 @@ and installed `genlayer-js@2.0.0-rc.1` identify the wallet RPC as
 returned `0xf22d` from both that host and the configured IC alias
 `https://studio-next.genlayer.com/api`. Wallet writes use the explicitly selected
 EVM provider; IC reads use the same-origin fixed-upstream proxy. These separate
-paths target the same verified network. Browser wallet writes remain pending
-until the deployed lifecycle is exercised.
+paths target the same verified network. The Chrome/OKX funding, expiry recovery
+and own withdrawal branch has now passed with canonical reads and native balance
+proof: [browser payment verification](BROWSER-PAYMENT-VERIFICATION.md). This is
+distinct from local tests and from script-signed semantic-review evidence.

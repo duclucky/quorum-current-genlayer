@@ -1,0 +1,66 @@
+{
+  "decision": {
+    "abstain": 0,
+    "attempts": 1,
+    "beneficiary": "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+    "digest": "b91dbe2f1810b77bacfadd8ea7e979b63cbdce76b89046593039513766b0c867",
+    "domain": "61997:0x10eb2739cd3336a69dbfe9caea2f9704d50708ce",
+    "expiry": 1792491479,
+    "id": "qc-unclear-1792490999",
+    "members": [
+      "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+      "0x79f9ecaa174b2f17afb57dfc8450684c238a033e"
+    ],
+    "no": 0,
+    "proposal": "Authorize publication of aggregate uptime monitoring statistics, excluding personal data and promotional marketing.",
+    "record_deadline": 1792491299,
+    "recorded": 3,
+    "sponsor": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+    "status": "CLOSED",
+    "title": "Ambiguous council delegation",
+    "version": "QC_V1",
+    "yes": 0,
+    "escrowGEN": "0"
+  },
+  "members": [
+    {
+      "address": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "at": 1792491052,
+      "ballot": "NO",
+      "digest": "b91dbe2f1810b77bacfadd8ea7e979b63cbdce76b89046593039513766b0c867",
+      "label": "UNCLEAR",
+      "recorded": true,
+      "scope": "Authorize only actions meeting my undisclosed confidential condition. The condition is not supplied.",
+      "target": 1
+    },
+    {
+      "address": "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+      "at": 1792491097,
+      "ballot": "NO",
+      "digest": "b91dbe2f1810b77bacfadd8ea7e979b63cbdce76b89046593039513766b0c867",
+      "label": "UNCLEAR",
+      "recorded": true,
+      "scope": "Authorize only actions meeting my undisclosed confidential condition. The condition is not supplied.",
+      "target": 2
+    },
+    {
+      "address": "0x79f9ecaa174b2f17afb57dfc8450684c238a033e",
+      "at": 1792491139,
+      "ballot": "YES",
+      "digest": "b91dbe2f1810b77bacfadd8ea7e979b63cbdce76b89046593039513766b0c867",
+      "label": "DIRECT",
+      "recorded": true,
+      "scope": "",
+      "target": 2
+    }
+  ],
+  "origins": [],
+  "accounting": {
+    "creditsGEN": "0",
+    "lockedGEN": "4",
+    "receivedGEN": "14",
+    "withdrawnGEN": "10"
+  },
+  "nativeBalanceGEN": "4"
+}

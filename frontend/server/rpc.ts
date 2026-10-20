@@ -45,11 +45,16 @@ export async function forwardRpc(body:unknown){
   // Quote against current server UTC only; this cannot change a signed transaction's runtime clock.
   const params=q.method==='sim_estimateTransactionFees'?[{...q.params[0] as object,sim_config:{genvm_datetime:new Date().toISOString()}}]:q.params;
   const response=await fetch(UPSTREAM,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id,method:q.method,params}),signal:AbortSignal.timeout(45000)});
-  if(!response.ok)return error(-32000,'Studio Dev is temporarily unavailable. Retry the canonical read.');
+  if(!response.ok)return error(response.status===429?-32005:-32000,`Studio Dev is temporarily unavailable (HTTP ${response.status}). Retry the canonical read.`);
   const payload=await response.json();
   if(payload.error)return error(typeof payload.error.code==='number'?payload.error.code:-32000,'Studio Dev could not complete this request. Check the network and canonical decision state.');
   return {jsonrpc:'2.0',id,result:projectResult(q.method,payload.result)};
- }catch{return error(-32000,'Studio Dev is temporarily unavailable. Retry the canonical read.');}
+ }catch(failure){
+  const e=failure as {name?:string;cause?:{code?:string}};
+  const code=e.cause?.code;
+  const reason=e.name==='TimeoutError'?'request timeout':code&&/^(UND_ERR_[A-Z_]+|ECONNRESET|ETIMEDOUT|ENOTFOUND|EAI_AGAIN|ECONNREFUSED)$/.test(code)?code:'connection failure';
+  return error(-32000,`Studio Dev is temporarily unavailable (${reason}). Retry the canonical read.`);
+ }
 }
 export async function rpcHandler(req:IncomingMessage&{body?:unknown},res:ServerResponse){
  res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');

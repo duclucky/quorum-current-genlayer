@@ -1,0 +1,27 @@
+{
+  "network": "studio-dev",
+  "chainId": 61997,
+  "rpc": "https://studio-next.genlayer.com/api",
+  "explorer": "https://explorer-studio-dev.genlayer.com",
+  "sourceCommit": "a58eed0933545ed92afaea7eb10bbdea7bef516a",
+  "sourceSha256": "fe8736d2cc4c7d7eeaaccfd463ef88c45ba1cdac47ee9f7370211d11fa9623b8",
+  "runner": "5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng",
+  "api": "v0.3.0",
+  "sdk": "2.0.0-rc.1",
+  "address": "0x10eb2739Cd3336a69DBfE9cAeA2F9704D50708ce",
+  "version": "QC_V1",
+  "receipt": {
+    "hash": "0x04a0916e815cf68a37614724b8823254461eb98c3ba52c33fd68617e32ae7c9e",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0x04a0916e815cf68a37614724b8823254461eb98c3ba52c33fd68617e32ae7c9e",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": "0x10eb2739Cd3336a69DBfE9cAeA2F9704D50708ce",
+    "createdAt": "2026-10-20T08:59:15.248259+00:00",
+    "observedAt": "2026-10-20T09:01:00.813Z"
+  },
+  "status": "ACTIVE",
+  "contractExplorer": "https://explorer-studio-dev.genlayer.com/address/0x10eb2739Cd3336a69DBfE9cAeA2F9704D50708ce"
+}

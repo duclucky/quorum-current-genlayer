@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-20T10:22:13.037Z",
+  "actor": "0xBd733BC56Ec4a55FA25C068B9306b0171335D199",
+  "amountGEN": "2",
+  "receipt": {
+    "hash": "0xd726b7d9d729bfb755a1f043649e90525e5d5b6000ecae1c710b0a78853f00d9",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0xd726b7d9d729bfb755a1f043649e90525e5d5b6000ecae1c710b0a78853f00d9",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T10:21:32.897937+00:00",
+    "observedAt": "2026-10-20T10:22:10.566Z"
+  },
+  "contractBeforeGEN": "6",
+  "contractAfterGEN": "4",
+  "exactNativeContractDebit": true,
+  "recipientBeforeGEN": "17.158792965499955834",
+  "recipientAfterGEN": "19.158666659999955011",
+  "recipientNetChangeGEN": "1.999873694499999177",
+  "ownCreditAfterGEN": "0",
+  "accounting": {
+    "creditsGEN": "0",
+    "lockedGEN": "4",
+    "receivedGEN": "12",
+    "withdrawnGEN": "8"
+  }
+}

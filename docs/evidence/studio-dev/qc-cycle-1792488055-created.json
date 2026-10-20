@@ -1,0 +1,66 @@
+{
+  "decision": {
+    "abstain": 0,
+    "attempts": 0,
+    "beneficiary": "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+    "digest": "0bbd0cb1eb12bfff1621eceaeb961ebb3868937be7e648d6425f5a5a50a50b2f",
+    "domain": "61997:0x10eb2739cd3336a69dbfe9caea2f9704d50708ce",
+    "expiry": 1792489555,
+    "id": "qc-cycle-1792488055",
+    "members": [
+      "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+      "0x79f9ecaa174b2f17afb57dfc8450684c238a033e"
+    ],
+    "no": 0,
+    "proposal": "Authorize publication of aggregate uptime monitoring statistics, excluding personal data and promotional marketing.",
+    "record_deadline": 1792488415,
+    "recorded": 0,
+    "sponsor": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+    "status": "COLLECTING",
+    "title": "Circular council representation",
+    "version": "QC_V1",
+    "yes": 0,
+    "escrowGEN": "2"
+  },
+  "members": [
+    {
+      "address": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "at": 0,
+      "ballot": "NO",
+      "digest": "",
+      "label": "PENDING",
+      "recorded": false,
+      "scope": "",
+      "target": 0
+    },
+    {
+      "address": "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+      "at": 0,
+      "ballot": "NO",
+      "digest": "",
+      "label": "PENDING",
+      "recorded": false,
+      "scope": "",
+      "target": 1
+    },
+    {
+      "address": "0x79f9ecaa174b2f17afb57dfc8450684c238a033e",
+      "at": 0,
+      "ballot": "NO",
+      "digest": "",
+      "label": "PENDING",
+      "recorded": false,
+      "scope": "",
+      "target": 2
+    }
+  ],
+  "origins": [],
+  "accounting": {
+    "creditsGEN": "0",
+    "lockedGEN": "4",
+    "receivedGEN": "4",
+    "withdrawnGEN": "0"
+  },
+  "nativeBalanceGEN": "4"
+}

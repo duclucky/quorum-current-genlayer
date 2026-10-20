@@ -9,6 +9,7 @@ import {CalldataAddress,TransactionHashVariant} from 'genlayer-js/types';
 import {privateKeyToAccount} from 'viem/accounts';
 import {formatEther,hexToBytes,isAddress,keccak256} from 'viem';
 import {receiptState} from '../frontend/src/receipt.ts';
+import {updateOperation} from './journal.mjs';
 
 export const ROOT=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 export const EVIDENCE=resolve(ROOT,'docs/evidence/studio-dev');
@@ -26,7 +27,7 @@ export function load(name){const path=resolve(EVIDENCE,name);return existsSync(p
 export async function rpc(method,params=[]){
  const response=await fetch(RPC,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:AbortSignal.timeout(50000)});
  if(!response.ok)throw Object.assign(Error('RPC HTTP failure'),{code:response.status});
- const body=await response.json();if(body.error){const e=Object.assign(Error('RPC rejected request'),{code:body.error.code});e.diagnostics={rollback:/rolled back|invalid transaction/i.test(String(body.error.message)),budget:/budget|fees|gas/i.test(String(body.error.message)),rateLimit:/rate limit/i.test(String(body.error.message))};throw e;}
+ const body=await response.json();if(body.error){const e=Object.assign(Error('RPC rejected request'),{code:body.error.code});e.diagnostics={rollback:/rolled back|invalid transaction/i.test(String(body.error.message)),budget:/budget|fees|gas/i.test(String(body.error.message)),rateLimit:/rate limit/i.test(String(body.error.message)),transactionNotFound:/transaction.*not found|not found.*transaction/i.test(String(body.error.message))};throw e;}
  return body.result;
 }
 export function accounts(){
@@ -92,33 +93,35 @@ export async function finalReceipt(hash){
   const state=safe.status+':'+safe.execution;if(state!==last){safeLog({hash,status:safe.status,execution:safe.execution});last=state;}
   if(safe.failed)throw Object.assign(Error('Transaction execution failed; inspect saved safe evidence'),{safeReceipt:safe});
   if(safe.finalized){if(!safe.successful)throw Object.assign(Error('Finalized execution not proven successful'),{safeReceipt:safe});return {raw,safe};}
-  await new Promise(r=>setTimeout(r,2500));
+  // Hosted Studio currently limits standard RPC traffic to 30 requests/minute.
+  await new Promise(r=>setTimeout(r,10000));
  }
  throw Error('Finality remains pending; resume the saved hash, do not rebroadcast');
 }
 export async function operation(name,actor,send){
  await verifyChain();const journal=load('operations.json')??{};
- if(journal[name]?.hash){const result=await finalReceipt(journal[name].hash);journal[name].receipt=result.safe;journal[name].stage='FINALIZED_SUCCESS';save('operations.json',journal);return result;}
+ const persist=()=>updateOperation(resolve(EVIDENCE,'operations.json'),name,journal[name]);
+ if(journal[name]?.hash){const result=await finalReceipt(journal[name].hash);journal[name].receipt=result.safe;journal[name].stage='FINALIZED_SUCCESS';persist();return result;}
  if(!identity().sourceCommit)throw Error('Commit reviewed source before deployment or value writes');
  const gitRoot=execFileSync('git',['rev-parse','--show-toplevel'],{cwd:ROOT,encoding:'utf8'}).trim();
  if(resolve(gitRoot).toLowerCase()!==ROOT.toLowerCase())throw Error('Git root must be this project child');
  execFileSync('git',['diff','--quiet','HEAD','--','contracts/quorum_current.py'],{cwd:ROOT});
  const signing={...actor,signTransaction:async(...args)=>{
   const serialized=await actor.signTransaction(...args);const hash=keccak256(serialized);
-  journal[name]={name,actor:actor.address,hash,stage:'SIGNED_BROADCAST_UNCONFIRMED',at:new Date().toISOString(),...identity()};save('operations.json',journal);
+  journal[name]={name,actor:actor.address,hash,stage:'SIGNED_BROADCAST_UNCONFIRMED',at:new Date().toISOString(),...identity()};persist();
   return serialized;
  }};
  const client=createClient({chain:CHAIN,account:signing});
  let hash;
  try{hash=await send(client);}catch(error){
   // A signed envelope can already be in flight even when the SDK did not return.
-  if(journal[name]?.hash){save('operations.json',journal);safeLog({operation:name,hash:journal[name].hash,stage:'AMBIGUOUS_RESUME_REQUIRED'});}
+  if(journal[name]?.hash){persist();safeLog({operation:name,hash:journal[name].hash,stage:'AMBIGUOUS_RESUME_REQUIRED'});}
   throw error;
  }
  if(journal[name]?.hash!==hash)throw Error('Signed/broadcast hash mismatch');
- journal[name].stage='SUBMITTED';save('operations.json',journal);
- try{const result=await finalReceipt(hash);journal[name].receipt=result.safe;journal[name].stage='FINALIZED_SUCCESS';save('operations.json',journal);return result;}
- catch(error){if(error.safeReceipt){journal[name].receipt=error.safeReceipt;save('operations.json',journal);}throw error;}
+ journal[name].stage='SUBMITTED';persist();
+ try{const result=await finalReceipt(hash);journal[name].receipt=result.safe;journal[name].stage='FINALIZED_SUCCESS';persist();return result;}
+ catch(error){if(error.safeReceipt){journal[name].receipt=error.safeReceipt;persist();}throw error;}
 }
 export async function unsignedSourceSmoke(){
  await verifyChain();const source=readFileSync(resolve(ROOT,'contracts/quorum_current.py'),'utf8');

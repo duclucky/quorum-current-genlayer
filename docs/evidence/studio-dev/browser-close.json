@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-20T10:19:01.041Z",
+  "origin": "Chrome OKX",
+  "receipt": {
+    "hash": "0xa665e5119096a2ea322dbbd67a6d23b682c7e5f572f15c6fa77f7ee09daa7afc",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0xa665e5119096a2ea322dbbd67a6d23b682c7e5f572f15c6fa77f7ee09daa7afc",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T10:17:34.460306+00:00",
+    "observedAt": "2026-10-20T10:19:01.961Z"
+  },
+  "id": "qc-eea191cf-c38f-4dce-825d-44433249d139",
+  "status": "CLOSED",
+  "escrowGEN": "0"
+}

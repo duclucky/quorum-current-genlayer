@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-20T09:51:10.693Z",
+  "hash": "0x60f0ca761efd695d41e2d9991aaef8c32fe16561f1d689181d7e2fb71a3924b2",
+  "messages": [
+    {
+      "messageType": "0",
+      "recipient": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "2",
+      "onAcceptance": false
+    }
+  ]
+}

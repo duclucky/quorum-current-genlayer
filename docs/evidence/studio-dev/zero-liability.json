@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-20T10:39:03.293Z",
+  "contract": "0x10eb2739Cd3336a69DBfE9cAeA2F9704D50708ce",
+  "nativeBalanceGEN": "0",
+  "creditsGEN": "0",
+  "lockedGEN": "0",
+  "receivedGEN": "14",
+  "withdrawnGEN": "14",
+  "accountingEqual": true,
+  "zeroLiability": true
+}

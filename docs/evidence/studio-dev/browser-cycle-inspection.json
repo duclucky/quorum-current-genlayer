@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-20T10:07:44.263Z",
+  "receipt": {
+    "hash": "0x3bbf06d01f9ee59e3b6daaf6c20b4bf8ff6a23405e21bbcf8c25bd8bd1f1614a",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0x3bbf06d01f9ee59e3b6daaf6c20b4bf8ff6a23405e21bbcf8c25bd8bd1f1614a",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T10:01:36.306259+00:00",
+    "observedAt": "2026-10-20T10:07:39.653Z"
+  },
+  "states": [
+    {
+      "id": "qc-cascade-1792486986",
+      "title": "Monitoring council grant",
+      "sponsor": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "status": "CLOSED",
+      "recorded": 3,
+      "record_deadline": 1792488132,
+      "expiry": 1792489272
+    },
+    {
+      "id": "qc-cycle-1792488055",
+      "title": "Circular council representation",
+      "sponsor": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "status": "RECOVERED",
+      "recorded": 3,
+      "record_deadline": 1792488415,
+      "expiry": 1792489555
+    },
+    {
+      "id": "qc-eea191cf-c38f-4dce-825d-44433249d139",
+      "title": "Browser payment and recovery",
+      "sponsor": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+      "status": "RECOVERED",
+      "recorded": 0,
+      "record_deadline": 1792488840,
+      "expiry": 1792488960
+    },
+    {
+      "id": "qc-bbc3149b-5ad5-4fce-b69c-f4f278aad711",
+      "title": "Circular representation on the web",
+      "sponsor": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+      "status": "COLLECTING",
+      "recorded": 0,
+      "record_deadline": 1792491060,
+      "expiry": 1792492200
+    }
+  ]
+}

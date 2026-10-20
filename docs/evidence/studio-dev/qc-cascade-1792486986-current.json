@@ -1,0 +1,66 @@
+{
+  "decision": {
+    "abstain": 0,
+    "attempts": 0,
+    "beneficiary": "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+    "digest": "178a804b4f0a3f5ec08beefa048b0fe1249a1552c66d4d215b92fcb0ee979cb6",
+    "domain": "61997:0x10eb2739cd3336a69dbfe9caea2f9704d50708ce",
+    "expiry": 1792489272,
+    "id": "qc-cascade-1792486986",
+    "members": [
+      "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+      "0x79f9ecaa174b2f17afb57dfc8450684c238a033e"
+    ],
+    "no": 0,
+    "proposal": "Authorize publication of aggregate uptime monitoring statistics, excluding personal data and promotional marketing.",
+    "record_deadline": 1792488132,
+    "recorded": 2,
+    "sponsor": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+    "status": "COLLECTING",
+    "title": "Monitoring council grant",
+    "version": "QC_V1",
+    "yes": 0,
+    "escrowGEN": "2"
+  },
+  "members": [
+    {
+      "address": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "at": 1792487844,
+      "ballot": "NO",
+      "digest": "178a804b4f0a3f5ec08beefa048b0fe1249a1552c66d4d215b92fcb0ee979cb6",
+      "label": "PENDING",
+      "recorded": true,
+      "scope": "May represent me only on publication of anonymous aggregate uptime monitoring statistics; exclude personal-data disclosure and promotional marketing.",
+      "target": 1
+    },
+    {
+      "address": "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+      "at": 1792487945,
+      "ballot": "NO",
+      "digest": "178a804b4f0a3f5ec08beefa048b0fe1249a1552c66d4d215b92fcb0ee979cb6",
+      "label": "PENDING",
+      "recorded": true,
+      "scope": "May represent me only on publication of anonymous aggregate uptime monitoring statistics; exclude personal-data disclosure and promotional marketing.",
+      "target": 2
+    },
+    {
+      "address": "0x79f9ecaa174b2f17afb57dfc8450684c238a033e",
+      "at": 0,
+      "ballot": "NO",
+      "digest": "",
+      "label": "PENDING",
+      "recorded": false,
+      "scope": "",
+      "target": 2
+    }
+  ],
+  "origins": [],
+  "accounting": {
+    "creditsGEN": "0",
+    "lockedGEN": "2",
+    "receivedGEN": "2",
+    "withdrawnGEN": "0"
+  },
+  "nativeBalanceGEN": "2"
+}

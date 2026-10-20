@@ -1,0 +1,57 @@
+{
+  "at": "2026-10-20T10:30:18.857Z",
+  "id": "qc-4ee9f395-fd03-4621-b27d-3c61f6a4e8b0",
+  "actor": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+  "origin": "Chrome OKX review, canonical latest-final reads",
+  "receipt": {
+    "hash": "0x7688e4666db0e314c286986013f909d9bdb3b1296873e8027de90ace6a7d2e8d",
+    "explorer": "https://explorer-studio-dev.genlayer.com/tx/0x7688e4666db0e314c286986013f909d9bdb3b1296873e8027de90ace6a7d2e8d",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "finalized": true,
+    "failed": false,
+    "contractAddress": null,
+    "createdAt": "2026-10-20T10:29:00.778075+00:00",
+    "observedAt": "2026-10-20T10:30:19.767Z"
+  },
+  "status": "APPROVED",
+  "yes": 3,
+  "no": 0,
+  "abstain": 0,
+  "origins": [
+    {
+      "label": "APPLIES",
+      "member": 0,
+      "path": [
+        0,
+        1,
+        2
+      ],
+      "root": 2,
+      "vote": "YES"
+    },
+    {
+      "label": "APPLIES",
+      "member": 1,
+      "path": [
+        1,
+        2
+      ],
+      "root": 2,
+      "vote": "YES"
+    },
+    {
+      "label": "DIRECT",
+      "member": 2,
+      "path": [
+        2
+      ],
+      "root": 2,
+      "vote": "YES"
+    }
+  ],
+  "creditGEN": "2",
+  "contractBalanceGEN": "4",
+  "walletBalanceGEN": "28.276175807832775617"
+}

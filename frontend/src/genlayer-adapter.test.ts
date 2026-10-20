@@ -13,7 +13,7 @@ const sent:Record<string,unknown>[]=[];
 let status='FINALIZED',native=2n*10n**18n,credit=2n*10n**18n;
 let onSend=()=>{};
 const decodeCall=(data:Hex)=>abi.calldata.decode(hexToBytes((fromRlp(data) as Hex[])[0])) as Map<string,unknown>;
-const d={id:'one',title:'Monitoring',proposal:'Authorize aggregates.',digest:'bound',sponsor:a(1),beneficiary:a(2),members:[a(1),a(2),a(3)],status:'READY',record_deadline:100,expiry:200,escrow:'2000000000000000000',attempts:0,yes:0,no:0,abstain:0};
+const d={id:'one',title:'Monitoring',proposal:'Authorize aggregates.',digest:'bound',sponsor:a(1),beneficiary:a(2),members:[a(1),a(2),a(3)],status:'READY',recorded:2,record_deadline:100,expiry:200,escrow:'2000000000000000000',attempts:0,yes:0,no:0,abstain:0};
 const provider={request:vi.fn(async({method,params}:{method:string;params?:unknown[]})=>{
  if(method==='eth_chainId')return '0xf22d';
  if(method==='eth_accounts')return [a(1)];
@@ -52,6 +52,11 @@ beforeEach(()=>{
 });
 afterEach(()=>vi.unstubAllGlobals());
 function adapter(){return createGenLayerAdapter({address:a(9),connection:()=>({account:a(1),provider}),rpc,pollMs:0,maxPolls:2});}
+it('lists canonical summaries with one view per decision instead of loading every member and accounting record',async()=>{
+ const rows=await adapter().list();expect(rows).toEqual([{id:'one',title:'Monitoring',status:'READY',recordDeadline:100,recorded:2}]);
+ const views=calls.filter(c=>c.method==='gen_call').map(c=>decodeCall((c.params[0] as {data:Hex}).data).get(''));
+ expect(views).toEqual(['list_decisions','get_decision']);
+});
 it('real SDK reads only the IC path at latest-final and formats GEN exactly',async()=>{
  const client=adapter();expect(await client.credit(a(1))).toBe('2');const decision=await client.decision('one');expect(decision.escrowGEN).toBe('2');expect(decision.members).toHaveLength(3);
  expect(calls.every(c=>c.url===rpc)).toBe(true);expect(calls.filter(c=>c.method==='gen_call').every(c=>(c.params[0] as {transaction_hash_variant:string}).transaction_hash_variant==='latest-final')).toBe(true);
@@ -62,7 +67,7 @@ it.each(['review','recover','close'] as const)('actual project adapter encodes z
  const request=sent[0];expect(request.from).toBe(a(1));expect(request.to?.toString().toLowerCase()).toBe(studioDevnet.consensusMainContract?.address.toLowerCase());expect(BigInt(request.value as string)).toBe(0n);
  const envelope=decodeFunctionData({abi:studioDevnet.consensusMainContract!.abi as Abi,data:request.data as Hex});expect(envelope.functionName).toBe('addTransaction');
  const params=envelope.args![0] as {sender:string;recipient:string;userValue:bigint;txCalldata:Hex};expect(params.sender.toLowerCase()).toBe(a(1));expect(params.recipient.toLowerCase()).toBe(a(9));expect(params.userValue).toBe(0n);
- expect(decodeCall(params.txCalldata).get('')).toBe(method);expect(updates.map(u=>u.stage)).toEqual(['signature','submitted','finalized']);
+ expect(decodeCall(params.txCalldata).get('')).toBe(method);expect(updates.map(u=>u.stage)).toEqual(['preparing','preparing','signature','submitted','finalized']);
  expect(calls.every(c=>c.url===rpc&&c.method!=='eth_sendTransaction')).toBe(true);
 });
 it('actual project create encodes exactly 2 GEN and Address-typed council arguments',async()=>{

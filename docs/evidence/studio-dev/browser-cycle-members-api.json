@@ -1,0 +1,66 @@
+{
+  "decision": {
+    "abstain": 0,
+    "attempts": 0,
+    "beneficiary": "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+    "digest": "f33b1545a4b5fe4d644cee6621a279df1fad24974909202832a56cb033e2ce8a",
+    "domain": "61997:0x10eb2739cd3336a69dbfe9caea2f9704d50708ce",
+    "expiry": 1792492200,
+    "id": "qc-bbc3149b-5ad5-4fce-b69c-f4f278aad711",
+    "members": [
+      "0xc495ef51618d03267a1f227afe5b27b38c748272",
+      "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+      "0x79f9ecaa174b2f17afb57dfc8450684c238a033e"
+    ],
+    "no": 0,
+    "proposal": "Authorize publication of anonymous aggregate uptime monitoring statistics, excluding personal data and promotional marketing.",
+    "record_deadline": 1792491060,
+    "recorded": 2,
+    "sponsor": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+    "status": "COLLECTING",
+    "title": "Circular representation on the web",
+    "version": "QC_V1",
+    "yes": 0,
+    "escrowGEN": "2"
+  },
+  "members": [
+    {
+      "address": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+      "at": 0,
+      "ballot": "NO",
+      "digest": "",
+      "label": "PENDING",
+      "recorded": false,
+      "scope": "",
+      "target": 0
+    },
+    {
+      "address": "0x160b8045f65a82aaac362cf9dba6c958ceba35d5",
+      "at": 1792490892,
+      "ballot": "YES",
+      "digest": "f33b1545a4b5fe4d644cee6621a279df1fad24974909202832a56cb033e2ce8a",
+      "label": "PENDING",
+      "recorded": true,
+      "scope": "May represent me only on publication of anonymous aggregate uptime monitoring statistics; exclude personal-data disclosure and promotional marketing.",
+      "target": 0
+    },
+    {
+      "address": "0x79f9ecaa174b2f17afb57dfc8450684c238a033e",
+      "at": 1792490941,
+      "ballot": "YES",
+      "digest": "f33b1545a4b5fe4d644cee6621a279df1fad24974909202832a56cb033e2ce8a",
+      "label": "PENDING",
+      "recorded": true,
+      "scope": "May represent me only on publication of anonymous aggregate uptime monitoring statistics; exclude personal-data disclosure and promotional marketing.",
+      "target": 0
+    }
+  ],
+  "origins": [],
+  "accounting": {
+    "creditsGEN": "0",
+    "lockedGEN": "2",
+    "receivedGEN": "8",
+    "withdrawnGEN": "6"
+  },
+  "nativeBalanceGEN": "2"
+}

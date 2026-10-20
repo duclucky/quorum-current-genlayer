@@ -1,0 +1,8 @@
+{
+  "command": "Unicode letter scan plus manual English copy/comment review",
+  "files": 18,
+  "nonAsciiLetterFindings": [],
+  "dateLocale": "en-US",
+  "htmlLangEnglish": true,
+  "status": "PASS"
+}
