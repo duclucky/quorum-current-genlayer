@@ -41,7 +41,10 @@ export async function forwardRpc(body:unknown){
  if(!q||typeof q.method!=='string'||!ALLOWED.has(q.method)||!Array.isArray(q.params))return error(-32601,'This RPC method is not available.');
  if(q.method==='gen_call'&&(!(q.params[0] as {type?:string})|| (q.params[0] as {type?:string}).type!=='read'))return error(-32602,'Only canonical contract reads are supported.');
  try{
-  const response=await fetch(UPSTREAM,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id,method:q.method,params:q.params}),signal:AbortSignal.timeout(45000)});
+  // Studio's default write simulation can inherit an old transaction clock.
+  // Quote against current server UTC only; this cannot change a signed transaction's runtime clock.
+  const params=q.method==='sim_estimateTransactionFees'?[{...q.params[0] as object,sim_config:{genvm_datetime:new Date().toISOString()}}]:q.params;
+  const response=await fetch(UPSTREAM,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id,method:q.method,params}),signal:AbortSignal.timeout(45000)});
   if(!response.ok)return error(-32000,'Studio Dev is temporarily unavailable. Retry the canonical read.');
   const payload=await response.json();
   if(payload.error)return error(typeof payload.error.code==='number'?payload.error.code:-32000,'Studio Dev could not complete this request. Check the network and canonical decision state.');

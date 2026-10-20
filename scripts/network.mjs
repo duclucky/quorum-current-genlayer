@@ -3,7 +3,7 @@ import {dirname,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
-import {createClient,abi} from 'genlayer-js';
+import {createClient,createFeesDistribution,abi} from 'genlayer-js';
 import {studioDevnet} from 'genlayer-js/chains';
 import {CalldataAddress,TransactionHashVariant} from 'genlayer-js/types';
 import {privateKeyToAccount} from 'viem/accounts';
@@ -46,6 +46,16 @@ export function accounts(){
 }
 export const asAddress=value=>{if(!isAddress(value))throw Error('Invalid address');return new CalldataAddress(hexToBytes(value));};
 export const reader=createClient({chain:CHAIN});
+export async function estimateWriteFees(client,{address,functionName,args,value=0n}){
+ const quote=await client.estimateTransactionFees();
+ const distribution=Object.fromEntries(Object.entries(quote.distribution).map(([k,v])=>[k,Array.isArray(v)?v.map(String):String(v)]));
+ const result=await rpc('sim_estimateTransactionFees',[{type:'write',to:address,from:client.account.address,data:abi.transactions.serialize([abi.calldata.encode(abi.calldata.makeCalldataObject(functionName,args)),false]),value:'0x'+value.toString(16),fees:{distribution,feeValue:quote.feeValue.toString()},sim_config:{genvm_datetime:new Date().toISOString()}}]);
+ const preset=result?.recommendedPreset;
+ if(!preset?.distribution||preset.feeValue===undefined)throw Error('Authoritative fee estimate missing');
+ const fees={distribution:createFeesDistribution(preset.distribution),messageAllocations:preset.messageAllocations??[],feeValue:BigInt(preset.feeValue)};
+ if(fees.feeValue>GEN)throw Error('Fee deposit exceeds bounded 1 GEN demo cap');
+ return fees;
+}
 export function identity(){
  const source=readFileSync(resolve(ROOT,'contracts/quorum_current.py'),'utf8');
  const sourceSha256=createHash('sha256').update(source).digest('hex');

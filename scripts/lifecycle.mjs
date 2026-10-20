@@ -1,10 +1,10 @@
 import {formatEther} from 'viem';
-import {accounts,active,view,canonical,accounting,asAddress,operation,inspect,load,save,rpc,GEN,safeLog,reportFailure} from './network.mjs';
+import {accounts,active,view,canonical,accounting,asAddress,operation,inspect,load,save,rpc,GEN,safeLog,reportFailure,estimateWriteFees} from './network.mjs';
 const actors=accounts();
 async function write(name,method,args,actor=actors[0],value=0n){
  const deployment=active();
  return operation(name,actor,async client=>{
-  const estimate=await client.estimateTransactionFeesForWrite({address:deployment.address,functionName:method,args,value});
+  const estimate=await estimateWriteFees(client,{address:deployment.address,functionName:method,args,value});
   safeLog({operation:name,actor:actor.address,userValueGEN:formatEther(value),networkFeeDepositGEN:formatEther(estimate.feeValue)});
   return client.writeContract({address:deployment.address,functionName:method,args,value,fees:{distribution:estimate.distribution,messageAllocations:estimate.messageAllocations,feeValue:estimate.feeValue}});
  });
@@ -16,6 +16,7 @@ async function create(kind){
   cases[kind]={id:'qc-'+kind+'-'+current,kind,recordDeadline:current+(kind==='partial'?60:180),expiry:current+(kind==='partial'?120:900),at:new Date().toISOString()};save('cases.json',cases);
  }
  const item=cases[kind];
+ if(!load('operations.json')?.[item.id+'-create']?.hash){const t=Math.floor(Date.now()/1000);item.recordDeadline=t+(kind==='partial'?120:360);item.expiry=t+(kind==='partial'?240:1500);save('cases.json',cases);}
  const title={cascade:'Monitoring council grant',cycle:'Circular council representation',unclear:'Ambiguous council delegation',partial:'Incomplete council recovery'}[kind];
  await write(item.id+'-create','create_decision',[item.id,title,'Authorize publication of aggregate uptime monitoring statistics, excluding personal data and promotional marketing.',...actors.map(a=>asAddress(a.address)),asAddress(actors[1].address),item.recordDeadline,item.expiry],actors[0],2n*GEN);
  save(item.id+'-created.json',await canonical(item.id));return item;
